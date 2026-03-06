@@ -1,0 +1,42 @@
+---
+title: "Automating Competitor Monitoring"
+description: "경쟁 제품 모니터링 및 크롤링 기반 마케팅 인텔리전스 시스템"
+category: "systems"
+date: "2026-02-01"
+techStack: ["Python", "Crawling", "Automation"]
+featured: true
+---
+
+## Problem
+
+경쟁사의 가격 변동, 신제품 출시, 프로모션 정보를 수동으로 추적하는 것은 비효율적이고 누락이 발생한다.
+
+## System
+
+자동 모니터링 시스템을 구축했다:
+
+- **Price Tracking** — 경쟁 제품 가격 변동 감지
+- **New Product Alert** — 신제품 출시 알림
+- **Promotion Monitor** — 프로모션/할인 추적
+- → **Daily Report** 자동 생성
+
+## Implementation
+
+```python
+def monitor_competitors():
+    prices = crawl_competitor_prices()
+    changes = detect_price_changes(prices)
+    if changes:
+        send_alert(changes)
+        update_report(changes)
+```
+
+## Result
+
+- 경쟁사 동향 실시간 파악
+- 대응 속도 향상
+- 마케팅 전략 수립 근거 확보
+
+## Insight
+
+Marketing intelligence는 데이터를 모으는 것이 아니라, 변화를 감지하고 즉시 행동할 수 있는 시스템을 만드는 것이다.

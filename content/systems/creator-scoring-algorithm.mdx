@@ -1,0 +1,41 @@
+---
+title: "Creator Scoring Algorithm for Influencer Marketing"
+description: "유튜버 분석 알고리즘 기반 인플루언서 선별 자동화 시스템"
+category: "systems"
+date: "2026-02-15"
+techStack: ["Python", "Data Analysis", "API"]
+featured: true
+---
+
+## Problem
+
+인플루언서 마케팅에서 가장 큰 문제는 적합한 크리에이터를 찾는 것이다. 구독자 수만으로는 실제 마케팅 효과를 예측할 수 없었다.
+
+## System
+
+크리에이터 스코어링 알고리즘을 설계했다:
+
+- **Engagement Rate** 분석
+- **Audience Quality** 평가
+- **Content Relevance** 매칭
+- → **Creator Score** 산출
+
+## Implementation
+
+```python
+def calculate_creator_score(channel_data):
+    engagement = analyze_engagement(channel_data)
+    audience = evaluate_audience_quality(channel_data)
+    relevance = match_content_relevance(channel_data)
+    return weighted_score(engagement, audience, relevance)
+```
+
+## Result
+
+- 인플루언서 선별 시간 단축
+- 캠페인 ROI 개선
+- 데이터 기반 의사결정
+
+## Insight
+
+인플루언서 마케팅의 핵심은 '누가 유명한가'가 아니라 '누가 우리 타겟과 맞는가'이다.
