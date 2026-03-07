@@ -59,6 +59,6 @@ export function getPost(category: string, slug: string) {
 }
 
 export function getAllPosts(): PostMeta[] {
-  const categories = ["systems", "experiments", "insights"];
+  const categories = ["marketing", "ai-systems", "insights"];
   return categories.flatMap((cat) => getPostsByCategory(cat));
 }

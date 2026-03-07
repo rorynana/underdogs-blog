@@ -8,7 +8,7 @@ export async function renderMDX(source: string) {
       parseFrontmatter: false,
       mdxOptions: {
         rehypePlugins: [
-          [rehypePrettyCode, { theme: "github-dark-default" }],
+          [rehypePrettyCode, { theme: "github-dark-default", keepBackground: false }],
         ],
       },
     },

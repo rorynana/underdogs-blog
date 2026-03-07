@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "The Underdogs — AI Driven Marketing Systems",
-  description: "Building AI systems for marketing operators",
+  description: "Building intelligent marketing systems that automate decisions, not just tasks.",
 };
 
 export default function RootLayout({
