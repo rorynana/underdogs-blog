@@ -8,7 +8,7 @@ export default function LatestPosts({ posts }: { posts: PostMeta[] }) {
   const ref = useScrollAnimation();
 
   return (
-    <section ref={ref} className="mx-auto max-w-6xl px-6 py-24">
+    <section ref={ref} className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
       <div className="animate-on-scroll">
         <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">
           Latest

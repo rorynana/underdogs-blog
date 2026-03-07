@@ -20,13 +20,15 @@ export default function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-[#0A0B0F]/90 backdrop-blur-xl"
+          ? "bg-[#0A0B0F]/90 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
+      {scrolled && <div className="gradient-line" />}
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="text-lg font-bold tracking-tight transition-colors hover:text-accent">
+        <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight transition-colors hover:text-accent">
           {SITE.name}
+          <span className="h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" style={{boxShadow:'0 0 6px #06B6D4'}} />
         </Link>
 
         {/* Desktop nav */}

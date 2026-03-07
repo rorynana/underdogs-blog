@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="520">
+      <stop offset="0%" stop-color="#080a10"/>
+      <stop offset="100%" stop-color="#0d1020"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#5B8CFF" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="520" fill="url(#bg)"/>
+  <circle cx="480" cy="260" r="250" fill="url(#glow1)"/>
+
+  <!-- Grid -->
+  <g opacity="0.02" stroke="#5B8CFF" stroke-width="0.5">
+    <line x1="0" y1="130" x2="960" y2="130"/>
+    <line x1="0" y1="260" x2="960" y2="260"/>
+    <line x1="0" y1="390" x2="960" y2="390"/>
+    <line x1="240" y1="0" x2="240" y2="520"/>
+    <line x1="480" y1="0" x2="480" y2="520"/>
+    <line x1="720" y1="0" x2="720" y2="520"/>
+  </g>
+
+  <!-- Title -->
+  <text x="480" y="45" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700">TubeScout Scoring Algorithm</text>
+  <text x="480" y="68" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">3 Indicators, Weighted Score System</text>
+
+  <!-- VPS Card -->
+  <g transform="translate(40, 100)">
+    <rect width="260" height="180" rx="12" fill="#5B8CFF" fill-opacity="0.04" stroke="#5B8CFF" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="130" y="35" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">VPS</text>
+    <text x="130" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="11">Views Per Subscriber</text>
+
+    <rect x="80" y="68" width="100" height="28" rx="14" fill="#5B8CFF" fill-opacity="0.12"/>
+    <text x="130" y="87" text-anchor="middle" fill="#5B8CFF" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">50%</text>
+
+    <text x="20" y="120" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">median(views)</text>
+    <text x="20" y="138" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">/ max(1000, subs)</text>
+    <text x="20" y="156" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">* 1000</text>
+    <text x="20" y="172" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" opacity="0.7">R = 100 (1K subs = 100 views)</text>
+  </g>
+
+  <!-- Cadence Card -->
+  <g transform="translate(350, 100)">
+    <rect width="260" height="180" rx="12" fill="#5B8CFF" fill-opacity="0.04" stroke="#5B8CFF" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="130" y="35" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">Cadence</text>
+    <text x="130" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="11">Upload Consistency</text>
+
+    <rect x="80" y="68" width="100" height="28" rx="14" fill="#5B8CFF" fill-opacity="0.12"/>
+    <text x="130" y="87" text-anchor="middle" fill="#5B8CFF" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">30%</text>
+
+    <text x="20" y="120" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">CV = std / mean</text>
+    <text x="20" y="138" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">score = 100 * (1 - CV/0.5)</text>
+    <text x="20" y="156" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">range: 0 ~ 100</text>
+    <text x="20" y="172" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" opacity="0.7">CV 0 = perfect, CV 0.5+ = 0pt</text>
+  </g>
+
+  <!-- Momentum Card -->
+  <g transform="translate(660, 100)">
+    <rect width="260" height="180" rx="12" fill="#4ADE80" fill-opacity="0.04" stroke="#4ADE80" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="130" y="35" text-anchor="middle" fill="#4ADE80" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">Momentum</text>
+    <text x="130" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="11">Growth Trend</text>
+
+    <rect x="80" y="68" width="100" height="28" rx="14" fill="#4ADE80" fill-opacity="0.12"/>
+    <text x="130" y="87" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">20%</text>
+
+    <text x="20" y="120" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">ratio = avg(recent3)</text>
+    <text x="20" y="138" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">      / avg(prev5)</text>
+    <text x="20" y="156" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10">score = (ratio-0.8)*250</text>
+    <text x="20" y="172" fill="#4ADE80" font-family="Inter, system-ui, sans-serif" font-size="10" opacity="0.7">1.0 = neutral, 1.2+ = rising</text>
+  </g>
+
+  <!-- Flow arrows -->
+  <line x1="170" y1="290" x2="380" y2="340" stroke="#5B8CFF" stroke-width="1" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrow)"/>
+  <line x1="480" y1="290" x2="480" y2="340" stroke="#5B8CFF" stroke-width="1" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrow)"/>
+  <line x1="790" y1="290" x2="580" y2="340" stroke="#4ADE80" stroke-width="1" stroke-dasharray="4,4" opacity="0.3" marker-end="url(#arrow)"/>
+
+  <!-- Total Score Box -->
+  <g transform="translate(330, 350)">
+    <rect width="300" height="120" rx="12" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.25" stroke-width="1.5"/>
+    <text x="150" y="35" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700">Total Score</text>
+
+    <text x="150" y="70" text-anchor="middle" fill="#5B8CFF" font-family="JetBrains Mono, monospace" font-size="12">VPS*0.5 + Cadence*0.3 + Momentum*0.2</text>
+
+    <text x="150" y="100" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="11">NaN safe, weight redistribution on missing indicators</text>
+  </g>
+
+  <rect x="0.5" y="0.5" width="959" height="519" stroke="#ffffff" stroke-opacity="0.04" fill="none"/>
+</svg>

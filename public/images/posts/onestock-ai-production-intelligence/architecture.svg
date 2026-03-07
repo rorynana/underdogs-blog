@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="520">
+      <stop offset="0%" stop-color="#0d1017"/>
+      <stop offset="100%" stop-color="#0a0e14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5B8CFF"/>
+      <stop offset="100%" stop-color="#3D6FE8"/>
+    </linearGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" rx="16" fill="url(#bg)"/>
+  <rect width="800" height="520" rx="16" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="0.05em" opacity="0.9">ONE STOCK ARCHITECTURE</text>
+  <line x1="300" y1="58" x2="500" y2="58" stroke="url(#accent)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Layer 1: React Dashboard -->
+  <rect x="240" y="80" width="320" height="64" rx="12" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1" filter="url(#shadow)"/>
+  <text x="400" y="105" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" opacity="0.8">FRONTEND</text>
+  <text x="400" y="128" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">🖥️  React 웹 대시보드</text>
+
+  <!-- Arrow 1 -->
+  <line x1="400" y1="144" x2="400" y2="180" stroke="#5B8CFF" stroke-opacity="0.4" stroke-width="1.5"/>
+  <polygon points="394,176 400,186 406,176" fill="#5B8CFF" opacity="0.5"/>
+  <rect x="350" y="156" width="100" height="20" rx="10" fill="#0d1017"/>
+  <text x="400" y="170" text-anchor="middle" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">REST API</text>
+
+  <!-- Layer 2: Express Proxy -->
+  <rect x="240" y="186" width="320" height="64" rx="12" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" filter="url(#shadow)"/>
+  <text x="400" y="211" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" opacity="0.8">PROXY</text>
+  <text x="400" y="234" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">⚡  Express Proxy Server</text>
+
+  <!-- Arrow 2 -->
+  <line x1="400" y1="250" x2="400" y2="286" stroke="#5B8CFF" stroke-opacity="0.4" stroke-width="1.5"/>
+  <polygon points="394,282 400,292 406,282" fill="#5B8CFF" opacity="0.5"/>
+  <rect x="340" y="262" width="120" height="20" rx="10" fill="#0d1017"/>
+  <text x="400" y="276" text-anchor="middle" fill="#8A8F98" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Tool 호출 (MCP)</text>
+
+  <!-- Layer 3: MCP Server (wider, emphasis) -->
+  <rect x="180" y="292" width="440" height="80" rx="14" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="180" y="292" width="440" height="80" rx="14" fill="#5B8CFF" fill-opacity="0.03"/>
+  <text x="400" y="317" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em">🧠  MCP SERVER</text>
+
+  <!-- Tool badges -->
+  <rect x="200" y="332" width="80" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.1" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="240" y="349" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">재고조회</text>
+
+  <rect x="290" y="332" width="80" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.1" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="330" y="349" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">BOM검색</text>
+
+  <rect x="380" y="332" width="80" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.1" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="420" y="349" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">수요예측</text>
+
+  <rect x="470" y="332" width="80" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.1" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="510" y="349" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">+7 tools</text>
+
+  <!-- Arrow 3 (splits) -->
+  <line x1="340" y1="372" x2="340" y2="410" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+  <line x1="460" y1="372" x2="460" y2="410" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+  <polygon points="334,406 340,416 346,406" fill="#5B8CFF" opacity="0.4"/>
+  <polygon points="454,406 460,416 466,406" fill="#5B8CFF" opacity="0.4"/>
+
+  <!-- Layer 4a: ERP API -->
+  <rect x="180" y="416" width="240" height="64" rx="12" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" filter="url(#shadow)"/>
+  <text x="300" y="441" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" opacity="0.8">DATA SOURCE</text>
+  <text x="300" y="464" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">📊  이카운트 ERP API</text>
+
+  <!-- Layer 4b: SQLite -->
+  <rect x="440" y="416" width="180" height="64" rx="12" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" filter="url(#shadow)"/>
+  <text x="530" y="441" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" opacity="0.8">CACHE</text>
+  <text x="530" y="464" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">💾  SQLite</text>
+
+  <!-- Side annotation: Teams Bot -->
+  <rect x="610" y="186" width="160" height="64" rx="12" fill="#1a1f2e" stroke="#5B8CFF" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="690" y="211" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.06em" opacity="0.7">TEAMS BOT</text>
+  <text x="690" y="234" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500">💬 Power Automate</text>
+
+  <!-- Dashed line from proxy to teams -->
+  <line x1="560" y1="218" x2="610" y2="218" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Bottom credit -->
+  <text x="400" y="506" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10" opacity="0.4">ONE STOCK — Production Intelligence Platform</text>
+</svg>

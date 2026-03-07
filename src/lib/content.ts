@@ -3,9 +3,12 @@ import path from "path";
 import matter from "gray-matter";
 
 const contentDir = path.join(process.cwd(), "content");
+const publicDir = path.join(process.cwd(), "public");
 
 export interface PostMeta {
   title: string;
+  subtitle?: string;
+  thumbnail?: string;
   description: string;
   category: string;
   date: string;
@@ -20,21 +23,24 @@ export function getPostsByCategory(category: string): PostMeta[] {
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith(".mdx"));
 
-  return files
-    .map((file) => {
-      const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-      const { data } = matter(raw);
-      return {
-        title: data.title || "",
-        description: data.description || "",
-        category: data.category || category,
-        date: data.date || "",
-        techStack: data.techStack || [],
-        featured: data.featured || false,
-        slug: file.replace(".mdx", ""),
-      };
-    })
-    .sort((a, b) => (a.date > b.date ? -1 : 1));
+  const posts: PostMeta[] = [];
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+    const { data } = matter(raw);
+    if (data.draft) continue;
+    posts.push({
+      title: data.title || "",
+      subtitle: data.subtitle || "",
+      thumbnail: data.thumbnail && fs.existsSync(path.join(publicDir, data.thumbnail)) ? data.thumbnail : "",
+      description: data.description || "",
+      category: data.category || category,
+      date: data.date || "",
+      techStack: data.techStack || [],
+      featured: data.featured || false,
+      slug: file.replace(".mdx", ""),
+    });
+  }
+  return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
 export function getPost(category: string, slug: string) {
@@ -47,6 +53,8 @@ export function getPost(category: string, slug: string) {
   return {
     meta: {
       title: data.title || "",
+      subtitle: data.subtitle || "",
+      thumbnail: data.thumbnail && fs.existsSync(path.join(publicDir, data.thumbnail)) ? data.thumbnail : "",
       description: data.description || "",
       category: data.category || category,
       date: data.date || "",

@@ -12,7 +12,8 @@ export default function Hero() {
     if (!ctx) return;
 
     let animationId: number;
-    const stars: { x: number; y: number; r: number; speed: number; opacity: number }[] = [];
+    const COLORS = ['#5B8CFF', '#8B5CF6', '#06B6D4', '#FFFFFF'];
+  const stars: { x: number; y: number; r: number; speed: number; opacity: number; color: string }[] = [];
 
     function resize() {
       canvas!.width = canvas!.offsetWidth;
@@ -21,14 +22,17 @@ export default function Hero() {
 
     function initStars() {
       stars.length = 0;
-      const count = Math.floor((canvas!.width * canvas!.height) / 10000);
+      const area = canvas!.width * canvas!.height;
+      const count = Math.min(Math.floor(area / 10000), 120);
       for (let i = 0; i < count; i++) {
+        const isBright = Math.random() < 0.1;
         stars.push({
           x: Math.random() * canvas!.width,
           y: Math.random() * canvas!.height,
-          r: Math.random() * 1.2 + 0.3,
+          r: isBright ? Math.random() * 1.8 + 1.0 : Math.random() * 1.2 + 0.3,
           speed: Math.random() * 0.3 + 0.05,
-          opacity: Math.random() * 0.6 + 0.2,
+          opacity: isBright ? Math.random() * 0.4 + 0.6 : Math.random() * 0.6 + 0.2,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
         });
       }
     }
@@ -40,7 +44,9 @@ export default function Hero() {
         s.opacity = Math.max(0.1, Math.min(0.8, s.opacity));
         ctx!.beginPath();
         ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(255, 255, 255, ${s.opacity})`;
+        ctx!.fillStyle = s.color === '#FFFFFF'
+          ? `rgba(255, 255, 255, ${s.opacity})`
+          : s.color + Math.round(s.opacity * 255).toString(16).padStart(2, '0');
         ctx!.fill();
       });
       animationId = requestAnimationFrame(draw);
@@ -68,11 +74,9 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-glow)_0%,_transparent_60%)] opacity-25" />
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        <div className="rounded-2xl border border-border bg-surface/40 px-8 py-10 backdrop-blur-sm sm:px-12 sm:py-14">
-          <p className="font-mono text-sm tracking-[0.3em] text-accent uppercase">
-            AI-Driven Marketing
-          </p>
-          <h1 className="gradient-text mt-4 text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+        <div className="rounded-2xl border border-[rgba(139,92,246,0.2)] bg-surface/40 px-5 py-8 backdrop-blur-sm sm:px-12 sm:py-14" style={{boxShadow:'0 0 40px rgba(139,92,246,0.1), 0 0 80px rgba(6,182,212,0.05)'}}>
+          <span className="section-label">AI-Driven Marketing</span>
+          <h1 className="gradient-text mt-4 text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl" style={{textShadow:'0 0 40px rgba(91,140,255,0.4), 0 0 80px rgba(139,92,246,0.2)'}}>
             Systems that
             <br />
             think ahead.

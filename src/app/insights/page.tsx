@@ -10,9 +10,9 @@ export default function InsightsPage() {
   const posts = getPostsByCategory("insights");
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
+    <div className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
       <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">INS</p>
-      <h1 className="mt-3 text-4xl font-bold sm:text-5xl">Insights</h1>
+      <h1 className="mt-3 text-3xl font-bold sm:text-5xl">Insights</h1>
       <p className="mt-4 text-lg text-secondary">
         시장분석, 업계 뉴스와 아티클을 내 관점에서 해석합니다.
       </p>

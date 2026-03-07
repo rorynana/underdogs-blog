@@ -4,25 +4,23 @@ import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const SPECS = [
-  { label: "Role", value: "AI Marketing Operator" },
-  { label: "Focus", value: "Systems Design & Automation" },
-  { label: "Stack", value: "Python / Data / AI / Automation" },
-  { label: "Mission", value: "Replace repetition with intelligence" },
+  { label: "Role", value: "AI Marketing Operator", color: "#8B5CF6" },
+  { label: "Focus", value: "Systems Design & Automation", color: "#5B8CFF" },
+  { label: "Stack", value: "Python / Data / AI / Automation", color: "#06B6D4" },
+  { label: "Mission", value: "Replace repetition with intelligence", color: "#8B5CF6" },
 ];
 
 export default function OperatorProfile() {
   const ref = useScrollAnimation();
 
   return (
-    <section ref={ref} className="mx-auto max-w-6xl px-6 py-24">
-      <div className="gradient-line mb-16" />
+    <section ref={ref} className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
+      <div className="gradient-line mb-8 sm:mb-16" />
 
-      <div className="animate-on-scroll overflow-hidden rounded-2xl border border-border bg-surface/30 p-8 sm:p-12">
+      <div className="animate-on-scroll overflow-hidden rounded-2xl border border-border p-5 sm:p-12" style={{background:'linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(18,20,26,0.3) 60%, rgba(6,182,212,0.03) 100%)'}}>
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">
-              About
-            </p>
+            <span className="section-label">About</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
               Operator Profile
             </h2>
@@ -43,7 +41,7 @@ export default function OperatorProfile() {
           <div className="space-y-6">
             {SPECS.map((spec, i) => (
               <div key={spec.label} className={`animate-on-scroll stagger-${i + 1}`}>
-                <p className="font-mono text-xs tracking-wider text-accent/60 uppercase">
+                <p className="font-mono text-xs tracking-wider uppercase" style={{color: spec.color + '99'}}>
                   {spec.label}
                 </p>
                 <p className="mt-1 text-lg font-medium">{spec.value}</p>

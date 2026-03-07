@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#080a10"/>
+      <stop offset="50%" stop-color="#0d1020"/>
+      <stop offset="100%" stop-color="#080a10"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5B8CFF"/>
+      <stop offset="100%" stop-color="#3D6FE8"/>
+    </linearGradient>
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#heroBg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#5B8CFF" stroke-width="0.5">
+    <line x1="60" y1="0" x2="60" y2="630"/><line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="180" y1="0" x2="180" y2="630"/><line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/><line x1="360" y1="0" x2="360" y2="630"/>
+    <line x1="420" y1="0" x2="420" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="540" y1="0" x2="540" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="660" y1="0" x2="660" y2="630"/><line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="780" y1="0" x2="780" y2="630"/><line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/><line x1="1080" y1="0" x2="1080" y2="630"/>
+    <line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <circle cx="250" cy="180" r="200" fill="url(#orbGlow)"/>
+  <circle cx="950" cy="450" r="220" fill="url(#orbGlow2)"/>
+
+  <!-- Icons row -->
+  <g transform="translate(310, 95)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="56" text-anchor="middle" font-size="28" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-weight="800">OY</text>
+  </g>
+  <text x="400" y="150" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">+</text>
+  <g transform="translate(430, 95)">
+    <circle cx="40" cy="45" r="38" fill="#4ADE80" fill-opacity="0.06" stroke="#4ADE80" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="55" text-anchor="middle" font-size="26" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-weight="700">Py</text>
+  </g>
+  <text x="520" y="150" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">+</text>
+  <g transform="translate(550, 95)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="55" text-anchor="middle" font-size="26" fill="#5B8CFF" font-family="JetBrains Mono, monospace" font-weight="700">GH</text>
+  </g>
+  <text x="640" y="150" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">=</text>
+  <g transform="translate(670, 95)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="58" text-anchor="middle" font-size="30">📊</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="265" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.02em">Oliveyoung Monitor</text>
+  <text x="600" y="310" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="400">Daily Competitive Intelligence for K-Beauty</text>
+
+  <line x1="420" y1="335" x2="780" y2="335" stroke="url(#accentGrad)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Stats -->
+  <g transform="translate(0, 365)">
+    <text x="210" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">129</text>
+    <text x="210" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">일일 모니터링</text>
+
+    <line x1="340" y1="10" x2="340" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="440" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">76일</text>
+    <text x="440" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">연속 운영</text>
+
+    <line x1="550" y1="10" x2="550" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="640" y="30" text-anchor="middle" fill="#4ADE80" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">₩0</text>
+    <text x="640" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">인프라 비용</text>
+
+    <line x1="740" y1="10" x2="740" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="840" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">1:45</text>
+    <text x="840" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">실행 시간</text>
+
+    <line x1="940" y1="10" x2="940" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="1020" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">0%</text>
+    <text x="1020" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">장애율</text>
+  </g>
+
+  <!-- Tech badges -->
+  <g transform="translate(290, 465)">
+    <rect x="0" y="0" width="72" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="36" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Python</text>
+    <rect x="82" y="0" width="78" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="121" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Selenium</text>
+    <rect x="170" y="0" width="100" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="220" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Google Sheets</text>
+    <rect x="280" y="0" width="110" height="26" rx="6" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.15"/>
+    <text x="335" y="17" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">GitHub Actions</text>
+    <rect x="400" y="0" width="115" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="457" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Power Automate</text>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="629" stroke="#ffffff" stroke-opacity="0.04" fill="none"/>
+</svg>

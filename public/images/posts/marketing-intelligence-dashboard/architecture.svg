@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" fill="none">
+  <defs>
+    <linearGradient id="archBg" x1="0" y1="0" x2="960" y2="580">
+      <stop offset="0%" stop-color="#0d1017"/>
+      <stop offset="100%" stop-color="#0a0e14"/>
+    </linearGradient>
+    <linearGradient id="accentFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="orbGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5BFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#8B5BFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrBlue" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#5B8CFF" opacity="0.4"/>
+    </marker>
+    <marker id="arrBlueBold" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#5B8CFF" opacity="0.5"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#8B5BFF" opacity="0.35"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="580" fill="url(#archBg)"/>
+
+  <!-- Orb glows -->
+  <circle cx="480" cy="300" r="280" fill="url(#orbGlow1)"/>
+  <circle cx="490" cy="480" r="180" fill="url(#orbGlow2)"/>
+
+  <!-- Grid -->
+  <g opacity="0.02" stroke="#5B8CFF" stroke-width="0.5">
+    <line x1="0" y1="60" x2="960" y2="60"/><line x1="0" y1="120" x2="960" y2="120"/>
+    <line x1="0" y1="180" x2="960" y2="180"/><line x1="0" y1="240" x2="960" y2="240"/>
+    <line x1="0" y1="300" x2="960" y2="300"/><line x1="0" y1="360" x2="960" y2="360"/>
+    <line x1="0" y1="420" x2="960" y2="420"/><line x1="0" y1="480" x2="960" y2="480"/>
+    <line x1="0" y1="540" x2="960" y2="540"/>
+    <line x1="120" y1="0" x2="120" y2="580"/><line x1="240" y1="0" x2="240" y2="580"/>
+    <line x1="360" y1="0" x2="360" y2="580"/><line x1="480" y1="0" x2="480" y2="580"/>
+    <line x1="600" y1="0" x2="600" y2="580"/><line x1="720" y1="0" x2="720" y2="580"/>
+    <line x1="840" y1="0" x2="840" y2="580"/>
+  </g>
+
+  <!-- Title -->
+  <text x="480" y="38" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em" opacity="0.9">SIGNAL ARCHITECTURE</text>
+  <line x1="350" y1="50" x2="610" y2="50" stroke="#5B8CFF" stroke-width="1" opacity="0.25"/>
+
+  <!-- === LAYER LABELS === -->
+  <text x="155" y="78" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em" opacity="0.6">DATA SOURCES</text>
+  <text x="490" y="78" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em" opacity="0.6">BACKEND</text>
+  <text x="800" y="78" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em" opacity="0.6">FRONTEND</text>
+
+  <!-- === LEFT: Data Sources === -->
+  <!-- 국내 채널 -->
+  <rect x="30" y="95" width="250" height="108" rx="10" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.18" filter="url(#glow)"/>
+  <text x="155" y="118" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">국내 채널</text>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#93b4ff">
+    <rect x="42" y="128" width="70" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="77" y="142" text-anchor="middle">iCount 49ch</text>
+    <rect x="118" y="128" width="45" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="140" y="142" text-anchor="middle">쿠팡</text>
+    <rect x="169" y="128" width="48" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="193" y="142" text-anchor="middle">네이버</text>
+    <rect x="223" y="128" width="48" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="247" y="142" text-anchor="middle">카페24</text>
+    <rect x="42" y="155" width="55" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="69" y="169" text-anchor="middle">올리브영</text>
+    <rect x="103" y="155" width="55" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.05" stroke="#5B8CFF" stroke-opacity="0.08"/>
+    <text x="130" y="169" text-anchor="middle" fill="#6B7BA0">+43 more</text>
+  </g>
+
+  <!-- 해외 채널 -->
+  <rect x="30" y="218" width="250" height="88" rx="10" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.18" filter="url(#glow)"/>
+  <text x="155" y="241" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">해외 채널</text>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#93b4ff">
+    <rect x="42" y="251" width="80" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="82" y="265" text-anchor="middle">Shopee 4리전</text>
+    <rect x="128" y="251" width="65" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="160" y="265" text-anchor="middle">Qoo10 JP</text>
+    <rect x="199" y="251" width="65" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="231" y="265" text-anchor="middle">Amazon</text>
+  </g>
+  <text x="225" y="294" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="8">SG / VN / MY / TH / JP / US</text>
+
+  <!-- 광고 플랫폼 -->
+  <rect x="30" y="321" width="250" height="68" rx="10" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.18" filter="url(#glow)"/>
+  <text x="155" y="344" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">광고 플랫폼</text>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#93b4ff">
+    <rect x="42" y="354" width="48" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="66" y="368" text-anchor="middle">Naver</text>
+    <rect x="96" y="354" width="42" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="117" y="368" text-anchor="middle">Meta</text>
+    <rect x="144" y="354" width="48" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="168" y="368" text-anchor="middle">쿠팡</text>
+    <rect x="198" y="354" width="60" height="20" rx="4" fill="#5B8CFF" fill-opacity="0.07" stroke="#5B8CFF" stroke-opacity="0.12"/>
+    <text x="228" y="368" text-anchor="middle">Shopee</text>
+  </g>
+
+  <!-- GA4 + 뉴스 -->
+  <rect x="30" y="404" width="250" height="45" rx="10" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.13" filter="url(#glow)"/>
+  <text x="155" y="432" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">GA4 + 뉴스 RSS</text>
+
+  <!-- === ARROWS: Sources → Backend (with labels + arrowheads) === -->
+  <g stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5">
+    <line x1="280" y1="149" x2="375" y2="255" marker-end="url(#arrBlue)"/>
+    <line x1="280" y1="262" x2="375" y2="275" marker-end="url(#arrBlue)"/>
+    <line x1="280" y1="355" x2="375" y2="295" marker-end="url(#arrBlue)"/>
+    <line x1="280" y1="427" x2="375" y2="310" marker-end="url(#arrBlue)"/>
+  </g>
+  <!-- Connection method labels -->
+  <g font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">
+    <rect x="296" y="190" width="60" height="14" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.18"/>
+    <text x="326" y="200" text-anchor="middle" fill="#4ADE80">API+Email</text>
+
+    <rect x="310" y="258" width="42" height="14" rx="3" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.18"/>
+    <text x="331" y="268" text-anchor="middle" fill="#93b4ff">OAuth</text>
+
+    <rect x="296" y="318" width="62" height="14" rx="3" fill="#FF5B5B" fill-opacity="0.08" stroke="#FF5B5B" stroke-opacity="0.18"/>
+    <text x="327" y="328" text-anchor="middle" fill="#FF9B9B">API+Crawler</text>
+
+    <rect x="310" y="380" width="32" height="14" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.18"/>
+    <text x="326" y="390" text-anchor="middle" fill="#4ADE80">API</text>
+  </g>
+
+  <!-- === CENTER: Backend (larger to balance) === -->
+  <rect x="380" y="220" width="220" height="120" rx="14" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.35" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="490" y="252" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em">EXPRESS SERVER</text>
+  <text x="490" y="278" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500">14 Routes / 40 Services</text>
+  <text x="490" y="298" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10">Scheduler (16 jobs/day)</text>
+  <text x="490" y="328" text-anchor="middle" fill="#6B7080" font-family="JetBrains Mono, monospace" font-size="9">04:00 ~ 20:00 자동 수집</text>
+
+  <!-- DB boxes -->
+  <rect x="380" y="375" width="100" height="52" rx="8" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.15" filter="url(#glow)"/>
+  <text x="430" y="397" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">signal.db</text>
+  <text x="430" y="414" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="8">R/W</text>
+
+  <rect x="500" y="375" width="100" height="52" rx="8" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.15" filter="url(#glow)"/>
+  <text x="550" y="397" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500">prod.db</text>
+  <text x="550" y="414" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="8">ONE STOCK (RO)</text>
+
+  <!-- Server → DB arrows -->
+  <line x1="440" y1="340" x2="430" y2="372" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arrBlue)"/>
+  <line x1="540" y1="340" x2="550" y2="372" stroke="#5B8CFF" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arrBlue)"/>
+
+  <!-- Gemini AI -->
+  <rect x="380" y="455" width="220" height="52" rx="10" fill="url(#accentFade)" stroke="#8B5BFF" stroke-opacity="0.2" filter="url(#glow)"/>
+  <text x="490" y="479" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">GEMINI AI</text>
+  <text x="490" y="497" text-anchor="middle" fill="#6B7080" font-family="JetBrains Mono, monospace" font-size="9">Pro / Flash hybrid</text>
+
+  <!-- Server → Gemini -->
+  <line x1="490" y1="427" x2="490" y2="452" stroke="#8B5BFF" stroke-opacity="0.25" stroke-width="1" marker-end="url(#arrPurple)"/>
+
+  <!-- === ARROW: Backend → Frontend === -->
+  <line x1="600" y1="280" x2="660" y2="280" stroke="#5B8CFF" stroke-opacity="0.4" stroke-width="1.5" marker-end="url(#arrBlueBold)"/>
+  <text x="630" y="270" text-anchor="middle" fill="#6B7080" font-family="JetBrains Mono, monospace" font-size="8">REST</text>
+
+  <!-- === RIGHT: Frontend (balanced height) === -->
+  <rect x="670" y="155" width="260" height="250" rx="14" fill="url(#accentFade)" stroke="#5B8CFF" stroke-opacity="0.2" filter="url(#glow)"/>
+  <text x="800" y="182" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.08em">REACT DASHBOARD</text>
+  <line x1="700" y1="194" x2="900" y2="194" stroke="#5B8CFF" stroke-opacity="0.08"/>
+
+  <!-- Active tabs -->
+  <text x="700" y="218" fill="#4ADE80" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" letter-spacing="0.06em">ACTIVE</text>
+
+  <g font-family="Inter, system-ui, sans-serif" font-size="11" fill="#fff" font-weight="500">
+    <text x="700" y="240">Dashboard</text>
+    <text x="700" y="260">Sales (국내+해외)</text>
+    <text x="700" y="280">Ads (4 플랫폼)</text>
+    <text x="700" y="300">Agent Chat</text>
+  </g>
+
+  <!-- Circles for active -->
+  <g fill="#4ADE80" opacity="0.6">
+    <circle cx="690" cy="236" r="2.5"/>
+    <circle cx="690" cy="256" r="2.5"/>
+    <circle cx="690" cy="276" r="2.5"/>
+    <circle cx="690" cy="296" r="2.5"/>
+  </g>
+
+  <!-- Standby tabs -->
+  <line x1="700" y1="316" x2="900" y2="316" stroke="#3A3F4B" stroke-opacity="0.3"/>
+  <text x="700" y="336" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" letter-spacing="0.06em">STANDBY (6)</text>
+
+  <g font-family="Inter, system-ui, sans-serif" font-size="10" fill="#4A4F58">
+    <text x="700" y="356">Briefing / Weekly / Monthly</text>
+    <text x="700" y="374">GA4 / Market / News</text>
+  </g>
+
+  <!-- Circles for standby -->
+  <g fill="#4A4F58" opacity="0.5">
+    <circle cx="690" cy="352" r="2"/>
+    <circle cx="690" cy="370" r="2"/>
+  </g>
+
+  <!-- Teams Webhook (repositioned: horizontal from backend bottom-right) -->
+  <rect x="700" y="430" width="190" height="40" rx="8" fill="#1a1f2e" stroke="#5B8CFF" stroke-opacity="0.1" stroke-dasharray="4 3"/>
+  <text x="795" y="455" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="11">Teams Webhook 알림</text>
+
+  <!-- Server → Teams (cleaner path: horizontal from server right side, then down) -->
+  <path d="M 600,320 L 630,320 L 630,450 L 697,450" stroke="#5B8CFF" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="5 4" fill="none" marker-end="url(#arrBlue)"/>
+
+  <!-- Bottom credit -->
+  <text x="480" y="548" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10" opacity="0.3">SIGNAL  -  Business Intelligence Platform for K-Beauty</text>
+
+  <rect x="0.5" y="0.5" width="959" height="579" stroke="#ffffff" stroke-opacity="0.03" fill="none"/>
+</svg>

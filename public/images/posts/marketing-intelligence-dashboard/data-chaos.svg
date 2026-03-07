@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" fill="none">
+  <defs>
+    <linearGradient id="chaosBg" x1="0" y1="0" x2="1200" y2="520">
+      <stop offset="0%" stop-color="#080a10"/>
+      <stop offset="50%" stop-color="#0d1020"/>
+      <stop offset="100%" stop-color="#080a10"/>
+    </linearGradient>
+    <radialGradient id="orbGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5B5B" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#FF5B5B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Arrowhead markers -->
+    <marker id="arrRed" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0,0 6,2.5 0,5" fill="#FF5B5B" opacity="0.35"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0,0 6,2.5 0,5" fill="#8B5BFF" opacity="0.35"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0,0 6,2.5 0,5" fill="#FFB85B" opacity="0.35"/>
+    </marker>
+    <marker id="arrGray" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#8A8F98" opacity="0.4"/>
+    </marker>
+    <marker id="arrRedSolid" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#FF5B5B" opacity="0.35"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#chaosBg)"/>
+
+  <!-- Orb glows -->
+  <circle cx="150" cy="200" r="200" fill="url(#orbGlow1)"/>
+  <circle cx="1050" cy="260" r="220" fill="url(#orbGlow2)"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#5B8CFF" stroke-width="0.5">
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="120" y1="0" x2="120" y2="520"/><line x1="240" y1="0" x2="240" y2="520"/>
+    <line x1="360" y1="0" x2="360" y2="520"/><line x1="480" y1="0" x2="480" y2="520"/>
+    <line x1="600" y1="0" x2="600" y2="520"/><line x1="720" y1="0" x2="720" y2="520"/>
+    <line x1="840" y1="0" x2="840" y2="520"/><line x1="960" y1="0" x2="960" y2="520"/>
+    <line x1="1080" y1="0" x2="1080" y2="520"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em">BEFORE SIGNAL</text>
+
+  <!-- === LEFT: 국내 매출 채널 === -->
+  <text x="105" y="72" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em" opacity="0.7">국내 매출</text>
+
+  <rect x="30" y="85" width="150" height="38" rx="8" fill="#FF5B5B" fill-opacity="0.06" stroke="#FF5B5B" stroke-opacity="0.2"/>
+  <text x="95" y="109" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Coupang Wing</text>
+  <rect x="185" y="89" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="201" y="101" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <rect x="30" y="133" width="150" height="38" rx="8" fill="#FF5B5B" fill-opacity="0.06" stroke="#FF5B5B" stroke-opacity="0.2"/>
+  <text x="95" y="157" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">SmartStore</text>
+  <rect x="185" y="137" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="201" y="149" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <rect x="30" y="181" width="150" height="38" rx="8" fill="#FF5B5B" fill-opacity="0.06" stroke="#FF5B5B" stroke-opacity="0.2"/>
+  <text x="95" y="205" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Olive Young</text>
+  <rect x="185" y="185" width="42" height="16" rx="3" fill="#FFB85B" fill-opacity="0.08" stroke="#FFB85B" stroke-opacity="0.2"/>
+  <text x="206" y="197" text-anchor="middle" fill="#FFB85B" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">Email</text>
+
+  <rect x="30" y="229" width="150" height="38" rx="8" fill="#FF5B5B" fill-opacity="0.06" stroke="#FF5B5B" stroke-opacity="0.2"/>
+  <text x="95" y="253" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">iCount ERP</text>
+  <rect x="185" y="233" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="201" y="245" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <!-- === LEFT: 광고 플랫폼 === -->
+  <text x="285" y="72" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em" opacity="0.7">광고 플랫폼</text>
+
+  <rect x="220" y="85" width="130" height="38" rx="8" fill="#8B5BFF" fill-opacity="0.06" stroke="#8B5BFF" stroke-opacity="0.2"/>
+  <text x="285" y="109" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Naver Ads</text>
+  <rect x="355" y="89" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="371" y="101" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <rect x="220" y="133" width="130" height="38" rx="8" fill="#8B5BFF" fill-opacity="0.06" stroke="#8B5BFF" stroke-opacity="0.2"/>
+  <text x="285" y="157" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Meta Ads</text>
+  <rect x="355" y="137" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="371" y="149" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <rect x="220" y="181" width="130" height="38" rx="8" fill="#8B5BFF" fill-opacity="0.06" stroke="#8B5BFF" stroke-opacity="0.2"/>
+  <text x="285" y="205" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Coupang Ads</text>
+  <rect x="355" y="185" width="52" height="16" rx="3" fill="#FF5B5B" fill-opacity="0.08" stroke="#FF5B5B" stroke-opacity="0.2"/>
+  <text x="381" y="197" text-anchor="middle" fill="#FF9B9B" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">Crawler</text>
+
+  <rect x="220" y="229" width="130" height="38" rx="8" fill="#8B5BFF" fill-opacity="0.06" stroke="#8B5BFF" stroke-opacity="0.2"/>
+  <text x="285" y="253" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Shopee Ads</text>
+  <rect x="355" y="233" width="32" height="16" rx="3" fill="#4ADE80" fill-opacity="0.08" stroke="#4ADE80" stroke-opacity="0.2"/>
+  <text x="371" y="245" text-anchor="middle" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">API</text>
+
+  <!-- === LEFT: 해외 매출 === -->
+  <text x="105" y="302" text-anchor="middle" fill="#FFD49B" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em" opacity="0.7">해외 매출</text>
+
+  <rect x="30" y="315" width="150" height="38" rx="8" fill="#FFB85B" fill-opacity="0.06" stroke="#FFB85B" stroke-opacity="0.2"/>
+  <text x="95" y="339" text-anchor="middle" fill="#FFD49B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Shopee SG</text>
+  <rect x="185" y="319" width="48" height="16" rx="3" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="209" y="331" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">OAuth</text>
+
+  <rect x="30" y="363" width="150" height="38" rx="8" fill="#FFB85B" fill-opacity="0.06" stroke="#FFB85B" stroke-opacity="0.2"/>
+  <text x="95" y="387" text-anchor="middle" fill="#FFD49B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Shopee VN</text>
+  <rect x="185" y="367" width="48" height="16" rx="3" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="209" y="379" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">OAuth</text>
+
+  <rect x="30" y="411" width="150" height="38" rx="8" fill="#FFB85B" fill-opacity="0.06" stroke="#FFB85B" stroke-opacity="0.2"/>
+  <text x="95" y="435" text-anchor="middle" fill="#FFD49B" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Shopee MY/TH</text>
+  <rect x="185" y="415" width="48" height="16" rx="3" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.2"/>
+  <text x="209" y="427" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600">OAuth</text>
+
+  <!-- === DASHED ARROWS: platforms to 담당자 (with arrowheads, spread out) === -->
+  <g opacity="0.25" stroke-width="1" stroke-dasharray="5 4">
+    <!-- 국내 → A (spread across A box left edge y:115~155) -->
+    <line x1="180" y1="104" x2="480" y2="118" stroke="#FF5B5B" marker-end="url(#arrRed)"/>
+    <line x1="180" y1="152" x2="480" y2="132" stroke="#FF5B5B" marker-end="url(#arrRed)"/>
+    <line x1="180" y1="200" x2="480" y2="145" stroke="#FF5B5B" marker-end="url(#arrRed)"/>
+    <line x1="180" y1="248" x2="480" y2="158" stroke="#FF5B5B" marker-end="url(#arrRed)"/>
+    <!-- 광고 → B (spread across B box left edge y:235~275) -->
+    <line x1="350" y1="104" x2="480" y2="238" stroke="#8B5BFF" marker-end="url(#arrPurple)"/>
+    <line x1="350" y1="152" x2="480" y2="250" stroke="#8B5BFF" marker-end="url(#arrPurple)"/>
+    <line x1="350" y1="200" x2="480" y2="262" stroke="#8B5BFF" marker-end="url(#arrPurple)"/>
+    <line x1="350" y1="248" x2="480" y2="274" stroke="#8B5BFF" marker-end="url(#arrPurple)"/>
+    <!-- 해외 → C (spread across C box left edge y:358~398) -->
+    <line x1="180" y1="334" x2="480" y2="360" stroke="#FFB85B" marker-end="url(#arrOrange)"/>
+    <line x1="180" y1="382" x2="480" y2="376" stroke="#FFB85B" marker-end="url(#arrOrange)"/>
+    <line x1="180" y1="430" x2="480" y2="392" stroke="#FFB85B" marker-end="url(#arrOrange)"/>
+  </g>
+
+  <!-- === MIDDLE: 담당자 === -->
+  <g transform="translate(480, 100)">
+    <rect width="140" height="65" rx="10" fill="#1B1F27" stroke="#3A3F4B" stroke-width="1"/>
+    <circle cx="30" cy="33" r="15" fill="#FF5B5B" fill-opacity="0.1" stroke="#FF5B5B" stroke-opacity="0.3"/>
+    <text x="30" y="38" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">A</text>
+    <text x="88" y="27" text-anchor="middle" fill="#C8CCD4" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">국내매출</text>
+    <text x="88" y="45" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10">수기 취합</text>
+  </g>
+
+  <g transform="translate(480, 220)">
+    <rect width="140" height="65" rx="10" fill="#1B1F27" stroke="#3A3F4B" stroke-width="1"/>
+    <circle cx="30" cy="33" r="15" fill="#8B5BFF" fill-opacity="0.1" stroke="#8B5BFF" stroke-opacity="0.3"/>
+    <text x="30" y="38" text-anchor="middle" fill="#B89BFF" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">B</text>
+    <text x="88" y="27" text-anchor="middle" fill="#C8CCD4" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">광고성과</text>
+    <text x="88" y="45" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10">수기 취합</text>
+  </g>
+
+  <g transform="translate(480, 340)">
+    <rect width="140" height="65" rx="10" fill="#1B1F27" stroke="#3A3F4B" stroke-width="1"/>
+    <circle cx="30" cy="33" r="15" fill="#FFB85B" fill-opacity="0.1" stroke="#FFB85B" stroke-opacity="0.3"/>
+    <text x="30" y="38" text-anchor="middle" fill="#FFD49B" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">C</text>
+    <text x="88" y="27" text-anchor="middle" fill="#C8CCD4" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">해외매출</text>
+    <text x="88" y="45" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="10">수기 취합</text>
+  </g>
+
+  <!-- Bracket + time indicator (encompasses all 3 담당자) -->
+  <path d="M 625,108 C 640,108 640,130 640,200 C 640,260 640,260 640,260 C 640,260 640,260 640,320 C 640,390 640,400 625,400" stroke="#8A8F98" stroke-opacity="0.2" stroke-width="1.2" fill="none"/>
+  <line x1="640" y1="254" x2="660" y2="254" stroke="#8A8F98" stroke-opacity="0.2" stroke-width="1.2"/>
+  <rect x="662" y="240" width="90" height="28" rx="6" fill="#FF5B5B" fill-opacity="0.05" stroke="#FF5B5B" stroke-opacity="0.15"/>
+  <text x="707" y="258" text-anchor="middle" fill="#FF9B9B" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">30min~1hr</text>
+
+  <!-- === ARROWS: 담당자 → Excel (with arrowheads) === -->
+  <g opacity="0.3" stroke="#8A8F98" stroke-width="1.5">
+    <line x1="620" y1="132" x2="790" y2="210" marker-end="url(#arrGray)"/>
+    <line x1="620" y1="252" x2="790" y2="260" marker-end="url(#arrGray)"/>
+    <line x1="620" y1="372" x2="790" y2="310" marker-end="url(#arrGray)"/>
+  </g>
+
+  <!-- === RIGHT: Excel (larger) === -->
+  <g transform="translate(795, 175)">
+    <rect width="180" height="170" rx="12" fill="#1B1F27" stroke="#3A3F4B" stroke-width="1.5"/>
+    <!-- Excel icon -->
+    <rect x="15" y="15" width="38" height="38" rx="6" fill="#217346" fill-opacity="0.25" stroke="#217346" stroke-opacity="0.45"/>
+    <text x="34" y="41" text-anchor="middle" fill="#4ADE80" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="800">X</text>
+    <text x="105" y="28" text-anchor="middle" fill="#C8CCD4" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">Excel</text>
+    <text x="105" y="47" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="10">"대시보드"</text>
+    <!-- Excel rows mockup -->
+    <line x1="15" y1="65" x2="165" y2="65" stroke="#3A3F4B" stroke-width="0.5"/>
+    <rect x="15" y="72" width="30" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.06"/>
+    <rect x="50" y="72" width="45" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.06"/>
+    <rect x="100" y="72" width="65" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.06"/>
+    <line x1="15" y1="90" x2="165" y2="90" stroke="#3A3F4B" stroke-width="0.5"/>
+    <rect x="15" y="97" width="30" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.04"/>
+    <rect x="50" y="97" width="45" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.04"/>
+    <rect x="100" y="97" width="65" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.04"/>
+    <line x1="15" y1="115" x2="165" y2="115" stroke="#3A3F4B" stroke-width="0.5"/>
+    <rect x="15" y="122" width="30" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.03"/>
+    <rect x="50" y="122" width="45" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.03"/>
+    <rect x="100" y="122" width="65" height="12" rx="2" fill="#5B8CFF" fill-opacity="0.03"/>
+    <line x1="15" y1="140" x2="165" y2="140" stroke="#3A3F4B" stroke-width="0.5"/>
+    <text x="90" y="158" text-anchor="middle" fill="#4A4F58" font-family="Inter, system-ui, sans-serif" font-size="8" font-style="italic">숫자만 나열...</text>
+  </g>
+
+  <!-- Arrow Excel → Problem (with arrowhead) -->
+  <line x1="980" y1="260" x2="1010" y2="260" stroke="#FF5B5B" stroke-opacity="0.25" stroke-width="1.2" marker-end="url(#arrRedSolid)"/>
+
+  <!-- === FAR RIGHT: Problem === -->
+  <g transform="translate(1020, 175)">
+    <rect width="160" height="170" rx="12" fill="#FF5B5B" fill-opacity="0.03" stroke="#FF5B5B" stroke-opacity="0.12" stroke-dasharray="6 3"/>
+    <text x="80" y="38" text-anchor="middle" fill="#FF5B5B" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" opacity="0.5">?</text>
+    <text x="80" y="64" text-anchor="middle" fill="#FF9B9B" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">상관관계 파악 불가</text>
+    <line x1="20" y1="76" x2="140" y2="76" stroke="#FF5B5B" stroke-opacity="0.08"/>
+    <text x="80" y="98" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="9">광고 A가 채널 B에 영향?</text>
+    <text x="80" y="116" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="9">베트남 매출 급등 원인?</text>
+    <text x="80" y="134" text-anchor="middle" fill="#6B7080" font-family="Inter, system-ui, sans-serif" font-size="9">리소스 최적 배분?</text>
+    <text x="80" y="156" text-anchor="middle" fill="#FF5B5B" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" opacity="0.5">성공해도 반복 불가</text>
+  </g>
+
+  <!-- Bottom label -->
+  <text x="600" y="498" text-anchor="middle" fill="#4A4F58" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" font-style="italic">11개 플랫폼 x 각 담당자 수기 취합 x 엑셀 병합 = 매일 아침 반복되는 비효율</text>
+
+  <rect x="0.5" y="0.5" width="1199" height="519" stroke="#ffffff" stroke-opacity="0.03" fill="none"/>
+</svg>

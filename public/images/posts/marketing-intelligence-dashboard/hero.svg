@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#080a10"/>
+      <stop offset="50%" stop-color="#0d1020"/>
+      <stop offset="100%" stop-color="#080a10"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5B8CFF"/>
+      <stop offset="100%" stop-color="#3D6FE8"/>
+    </linearGradient>
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B8CFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#heroBg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#5B8CFF" stroke-width="0.5">
+    <line x1="60" y1="0" x2="60" y2="630"/><line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="180" y1="0" x2="180" y2="630"/><line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/><line x1="360" y1="0" x2="360" y2="630"/>
+    <line x1="420" y1="0" x2="420" y2="630"/><line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="540" y1="0" x2="540" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="660" y1="0" x2="660" y2="630"/><line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="780" y1="0" x2="780" y2="630"/><line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/><line x1="960" y1="0" x2="960" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/><line x1="1080" y1="0" x2="1080" y2="630"/>
+    <line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <circle cx="200" cy="150" r="200" fill="url(#orbGlow)"/>
+  <circle cx="1000" cy="480" r="250" fill="url(#orbGlow)"/>
+
+  <!-- Icons row -->
+  <g transform="translate(340, 100)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="58" text-anchor="middle" font-size="32">📊</text>
+  </g>
+  <text x="430" y="155" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">+</text>
+  <g transform="translate(460, 100)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="58" text-anchor="middle" font-size="32">🌏</text>
+  </g>
+  <text x="550" y="155" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">+</text>
+  <g transform="translate(580, 100)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="58" text-anchor="middle" font-size="32">🤖</text>
+  </g>
+  <text x="670" y="155" text-anchor="middle" fill="#5B8CFF" font-size="28" opacity="0.4">=</text>
+  <g transform="translate(700, 100)">
+    <circle cx="40" cy="45" r="38" fill="#5B8CFF" fill-opacity="0.06" stroke="#5B8CFF" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="40" y="58" text-anchor="middle" font-size="32">🚀</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="270" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="800" letter-spacing="-0.03em">SIGNAL</text>
+  <text x="600" y="315" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="400">Business Intelligence for K-Beauty</text>
+
+  <line x1="420" y1="340" x2="780" y2="340" stroke="url(#accentGrad)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Stats -->
+  <g transform="translate(0, 370)">
+    <text x="200" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">21</text>
+    <text x="200" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">연동 플랫폼</text>
+
+    <line x1="330" y1="10" x2="330" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="420" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">49</text>
+    <text x="420" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">국내 채널</text>
+
+    <line x1="530" y1="10" x2="530" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="600" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">6개국</text>
+    <text x="600" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">해외 권역</text>
+
+    <line x1="720" y1="10" x2="720" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="800" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">10</text>
+    <text x="800" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">대시보드 탭</text>
+
+    <line x1="910" y1="10" x2="910" y2="60" stroke="#ffffff" stroke-opacity="0.06"/>
+
+    <text x="1010" y="30" text-anchor="middle" fill="#5B8CFF" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800">AI</text>
+    <text x="1010" y="55" text-anchor="middle" fill="#8A8F98" font-family="Inter, system-ui, sans-serif" font-size="13">Gemini 분석</text>
+  </g>
+
+  <!-- Tech badges -->
+  <g transform="translate(310, 470)">
+    <rect x="0" y="0" width="65" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="32" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">React</text>
+    <rect x="75" y="0" width="55" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="102" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Vite</text>
+    <rect x="140" y="0" width="80" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="180" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Express</text>
+    <rect x="230" y="0" width="90" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="275" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Playwright</text>
+    <rect x="330" y="0" width="70" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="365" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">Gemini</text>
+    <rect x="410" y="0" width="65" height="26" rx="6" fill="#5B8CFF" fill-opacity="0.08" stroke="#5B8CFF" stroke-opacity="0.15"/>
+    <text x="442" y="17" text-anchor="middle" fill="#93b4ff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">SQLite</text>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="629" rx="0" stroke="#ffffff" stroke-opacity="0.04" fill="none"/>
+</svg>

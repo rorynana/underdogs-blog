@@ -10,7 +10,9 @@
 ## Checklist
 
 ### 1. Frontmatter 검증
-- [ ] `title` 존재 및 비어있지 않음
+- [ ] `title` 존재 및 비어있지 않음 (10자 이내 권장)
+- [ ] `subtitle` 존재 확인 (25자 이내 권장)
+- [ ] `thumbnail` 경로 확인 (있을 경우 파일 존재 여부)
 - [ ] `description` 존재 및 비어있지 않음
 - [ ] `category` 값이 유효함 ("marketing" | "ai-systems" | "insights")
 - [ ] `date` 형식이 "YYYY-MM-DD"
