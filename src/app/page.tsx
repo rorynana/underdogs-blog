@@ -8,7 +8,7 @@ import { CATEGORIES } from "@/lib/constants";
 
 export default function Home() {
   const allPosts = getAllPosts();
-  const featuredPosts = allPosts.filter((p) => p.featured).slice(0, 3);
+  const featuredPosts = getPostsByCategory("ai-systems").filter((p) => p.featured).slice(0, 3);
   const latestPosts = allPosts.slice(0, 6);
 
   const categoryData = CATEGORIES.map((cat) => ({
