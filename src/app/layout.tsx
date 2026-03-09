@@ -46,11 +46,11 @@ export const metadata: Metadata = {
     locale: SITE.locale,
     url: SITE.siteUrl,
     siteName: SITE.name,
-    title: SITE.title,
+    title: "The Underdogs",
     description: SITE.description,
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent("The Underdogs")}&subtitle=${encodeURIComponent("AI Driven Marketing Systems")}&category=ai-systems`,
+        url: `/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "The Underdogs — AI Driven Marketing Systems",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE.title,
+    title: "The Underdogs",
     description: SITE.description,
-    images: [`/api/og?title=${encodeURIComponent("The Underdogs")}&subtitle=${encodeURIComponent("AI Driven Marketing Systems")}&category=ai-systems`],
+    images: [`/og-image.jpg`],
   },
   alternates: {
     canonical: SITE.siteUrl,
