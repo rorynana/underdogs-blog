@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   other: {
-    "naver-site-verification": "REPLACE_AFTER_DEPLOY",
+    "naver-site-verification": "0e991d75a194829ad008c2c994c62885efbe5618",
   },
 };
 
