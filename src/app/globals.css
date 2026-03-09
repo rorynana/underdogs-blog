@@ -378,8 +378,8 @@ body {
   white-space: nowrap;
 }
 .chalk-node-pulse {
-  animation: chalkNodePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both,
-             chalkNodeGlow 2.4s ease-in-out 1.4s infinite;
+  animation: chalkNodePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 2.8s both,
+             chalkNodeGlow 2.4s ease-in-out 3.4s infinite;
 }
 
 /* Arrow */

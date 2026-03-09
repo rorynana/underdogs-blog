@@ -22,16 +22,16 @@ const LINE_STYLE: Record<string, string> = {
 
 // ── Cyberpunk Chalkboard — "The Operator's Field Notes" ─────────────────────
 const FLOW_NODES = [
-  { id: "raw",     label: "RAW DATA", color: "#8A8F98", delay: "0.6s" },
-  { id: "agent",   label: "AGENT",    color: "#5B8CFF", delay: "0.9s", pulse: true },
-  { id: "insight", label: "INSIGHT",  color: "#8B5CF6", delay: "1.2s" },
-  { id: "action",  label: "ACTION",   color: "#34D399", delay: "1.5s" },
+  { id: "raw",     label: "RAW DATA", color: "#8A8F98", delay: "1.5s" },
+  { id: "agent",   label: "AGENT",    color: "#5B8CFF", delay: "2.8s", pulse: true },
+  { id: "insight", label: "INSIGHT",  color: "#8B5CF6", delay: "4.1s" },
+  { id: "action",  label: "ACTION",   color: "#34D399", delay: "5.4s" },
 ];
 
 const ANNOTATIONS = [
-  { prefix: "✓", text: "3 agents running",  color: "#34D399", delay: "1.8s" },
-  { prefix: "✓", text: "12 signals live",   color: "#34D399", delay: "2.2s" },
-  { prefix: "?", text: "next: scale",       color: "#8B5CF6", delay: "2.6s" },
+  { prefix: "✓", text: "3 agents running",  color: "#34D399", delay: "6.8s" },
+  { prefix: "✓", text: "12 signals live",   color: "#34D399", delay: "8.2s" },
+  { prefix: "?", text: "next: scale",       color: "#8B5CF6", delay: "9.6s" },
 ];
 
 function CyberpunkChalkboard() {
@@ -196,15 +196,15 @@ export default function Hero() {
       });
       if (charIdx < line.text.length) {
         charIdx++;
-        timeout = setTimeout(typeNext, line.type === "ok" ? 22 : 55);
+        timeout = setTimeout(typeNext, line.type === "ok" ? 38 : 90);
       } else {
         lineIdx++;
         charIdx = 0;
-        timeout = setTimeout(typeNext, line.type === "cmd" ? 350 : 180);
+        timeout = setTimeout(typeNext, line.type === "cmd" ? 700 : 400);
       }
     }
 
-    timeout = setTimeout(typeNext, 700);
+    timeout = setTimeout(typeNext, 1500);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -254,12 +254,6 @@ export default function Hero() {
     if (titlePhase === 'final') setShowTagline(true);
   }, [titlePhase]);
 
-  // 모바일: 마운트 후 즉시 final 상태로 (hydration 안전)
-  useEffect(() => {
-    if (window.innerWidth < 640) {
-      setTitlePhase('final');
-    }
-  }, []);
 
   // Live stats fluctuation
   useEffect(() => {
@@ -493,34 +487,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 모바일 전용 compact 뷰 (데코레이션) */}
-          <div className="sm:hidden border-t border-white/5 px-5 py-4 space-y-3" aria-hidden="true">
-            {/* Flow 1줄 */}
-            <div className="flex items-center justify-between">
-              {FLOW_NODES.map((node, i) => (
-                <div key={node.id} className="flex items-center gap-1.5">
-                  <span
-                    className="font-mono text-[9px] tracking-[0.1em] px-1.5 py-0.5 rounded border"
-                    style={{ borderColor: node.color + "55", color: node.color }}
-                  >
-                    {node.label}
-                  </span>
-                  {i < FLOW_NODES.length - 1 && (
-                    <span className="text-white/20 text-[10px]">›</span>
-                  )}
-                </div>
-              ))}
-            </div>
-            {/* 터미널 stats 요약 */}
-            <div className="font-mono text-[11px] space-y-0.5">
-              {ANNOTATIONS.map((note, i) => (
-                <div key={i} className="flex items-center gap-1.5">
-                  <span style={{ color: note.color }}>{note.prefix}</span>
-                  <span className="text-white/40">{note.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
