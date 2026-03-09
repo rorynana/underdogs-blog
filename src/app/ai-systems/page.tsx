@@ -2,7 +2,7 @@ import { getPostsByCategory } from "@/lib/content";
 import PostCard from "@/components/post/PostCard";
 
 export const metadata = {
-  title: "AI & Systems — The Underdogs",
+  title: "AI Driven — The Underdogs",
   description: "AI 에이전트, 자동화 시스템 구축기",
 };
 
@@ -12,7 +12,7 @@ export default function AiSystemsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
       <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">AI</p>
-      <h1 className="mt-3 text-3xl font-bold sm:text-5xl">AI & Systems</h1>
+      <h1 className="mt-3 text-3xl font-bold sm:text-5xl">AI Driven</h1>
       <p className="mt-4 text-lg text-secondary">
         AI 에이전트와 자동화 시스템 구축기를 공유합니다.
       </p>

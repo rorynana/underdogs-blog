@@ -2,8 +2,8 @@ import { getPostsByCategory } from "@/lib/content";
 import PostCard from "@/components/post/PostCard";
 
 export const metadata = {
-  title: "Insights — The Underdogs",
-  description: "시장분석, 업계 뉴스와 아티클 해석",
+  title: "Field Notes — The Underdogs",
+  description: "시장분석, 브랜드 창업, 현장 기록",
 };
 
 export default function InsightsPage() {
@@ -11,10 +11,10 @@ export default function InsightsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
-      <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">INS</p>
-      <h1 className="mt-3 text-3xl font-bold sm:text-5xl">Insights</h1>
+      <p className="font-mono text-sm tracking-[0.2em] text-accent uppercase">FLD</p>
+      <h1 className="mt-3 text-3xl font-bold sm:text-5xl">Field Notes</h1>
       <p className="mt-4 text-lg text-secondary">
-        시장분석, 업계 뉴스와 아티클을 내 관점에서 해석합니다.
+        시장분석, 브랜드 창업, 현장에서 건진 기록들.
       </p>
       <div className="gradient-line mt-10 mb-12" />
       {posts.length > 0 ? (

@@ -269,6 +269,15 @@ const AGENTS = [
   },
 ];
 
+// ── 시스템 상태 데이터 ─────────────────────────────────────────────────────
+const STATUS_SYSTEMS = [
+  { name: "ONE STOCK",  desc: "이카운트 ERP + MCP 생산 인텔리전스",     status: "OPERATIONAL" as const, uptime: "99.2%", lastSync: "2h ago",  color: "#5B8CFF", link: "/ai-systems/onestock-ai-production-intelligence" },
+  { name: "SIGNAL",     desc: "49채널 6개국 마케팅 인텔리전스 대시보드", status: "OPERATIONAL" as const, uptime: "98.7%", lastSync: "30m ago", color: "#8B5CF6", link: "/ai-systems/marketing-intelligence-dashboard" },
+  { name: "TUBESCOUT",  desc: "유튜브 채널 스코어링 크롬 확장",          status: "OPERATIONAL" as const, uptime: "100%",  lastSync: "1d ago",  color: "#06B6D4", link: "/ai-systems/tubescout-youtube-creator-scoring" },
+  { name: "OY MONITOR", desc: "올리브영 경쟁사 모니터링 자동화",         status: "OPERATIONAL" as const, uptime: "97.4%", lastSync: "6h ago",  color: "#34D399", link: "/ai-systems/market-monitoring-automation" },
+];
+const SYS_STATUS_COLOR = { OPERATIONAL: "#34D399", DEGRADED: "#F59E0B", DOWN: "#EF4444" } as const;
+
 // ── What I Believe ─────────────────────────────────────────────────────────
 const BELIEFS = [
   {
@@ -297,6 +306,7 @@ const TERMINAL_LINES = [
 export default function AboutPage() {
   const [showGithubMsg, setShowGithubMsg] = useState(false);
   const [hoveredAgent, setHoveredAgent] = useState<string | null>(null);
+  const [statusOpen, setStatusOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -373,64 +383,30 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {/* 구분선 + 줄글 소개 */}
+        <div className="mt-8 border-t border-white/[0.07] pt-8">
+          <div className="flex items-baseline gap-4">
+            <h2 className="text-2xl font-bold">장성윤</h2>
+            <span className="text-sm text-secondary">AI Driven Marketing Operator</span>
+          </div>
+          <div className="mt-5 max-w-2xl space-y-3 leading-relaxed text-secondary">
+            <p>마케팅 실무에서 자연스럽게 시스템을 만들게 됐습니다.</p>
+            <p>
+              반복되는 작업이 보이면 자동화를 시도하고,
+              흩어진 데이터가 보이면 한 화면에 모으고,
+              감으로 처리하던 의사결정이 보이면 구조를 만들었습니다.
+            </p>
+            <p>
+              코드를 직접 짜진 않습니다.
+              무엇을 만들어야 하는지 정의하고, AI 에이전트들이 구현합니다.
+              그 과정을 여기에 기록하고 있습니다.
+            </p>
+          </div>
+        </div>
       </section>
 
       <div className="gradient-line mt-12 mb-14" />
-
-      {/* ── Who I Am ────────────────────────────────────────────────── */}
-      <section>
-        <div className="flex items-baseline gap-4">
-          <h2 className="text-2xl font-bold">장성윤</h2>
-          <span className="text-sm text-secondary">AI Driven Marketing Operator</span>
-        </div>
-        <div className="mt-5 max-w-2xl space-y-3 leading-relaxed text-secondary">
-          <p>마케팅 실무에서 자연스럽게 시스템을 만들게 됐습니다.</p>
-          <p>
-            반복되는 작업이 보이면 자동화를 시도하고,
-            흩어진 데이터가 보이면 한 화면에 모으고,
-            감으로 처리하던 의사결정이 보이면 구조를 만들었습니다.
-          </p>
-          <p>
-            코드를 직접 짜진 않습니다.
-            무엇을 만들어야 하는지 정의하고, AI 에이전트들이 구현합니다.
-            그 과정을 여기에 기록하고 있습니다.
-          </p>
-        </div>
-      </section>
-
-      {/* ── What I Believe ──────────────────────────────────────────── */}
-      <section className="mt-16">
-        <span className="section-label">What I Believe</span>
-        <div className="mt-6 space-y-3">
-          {BELIEFS.map((b, i) => (
-            <div
-              key={b.title}
-              className="group relative overflow-hidden border border-border bg-surface/30 p-6 transition-all hover:border-accent/40 hover:bg-surface/50"
-              style={{ borderLeft: "3px solid rgba(91,140,255,0.5)" }}
-            >
-              {/* 도트 패턴 배경 */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
-                style={{
-                  backgroundImage: "radial-gradient(circle, rgba(91,140,255,0.15) 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
-                }}
-              />
-              {/* hover 좌→우 그라디언트 */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                style={{ background: "linear-gradient(90deg, rgba(91,140,255,0.07) 0%, transparent 55%)" }}
-              />
-              {/* 번호 뱃지 */}
-              <span className="absolute top-4 right-4 border border-white/10 px-2 py-0.5 font-mono text-[10px] tracking-[0.18em] text-white/25">
-                [ 0{i + 1} ]
-              </span>
-              <p className="relative text-lg font-bold leading-snug">{b.title}</p>
-              <p className="relative mt-3 text-sm leading-relaxed text-secondary">{b.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ── My Agent Team — HANGAR-7 SCI-FI Stage ───────────────────── */}
       <section className="mt-16">
@@ -835,6 +811,120 @@ export default function AboutPage() {
                 ))}
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── What I Believe ──────────────────────────────────────────── */}
+      <section className="mt-16">
+        <span className="section-label">What I Believe</span>
+        <div className="mt-6 space-y-3">
+          {BELIEFS.map((b, i) => (
+            <div
+              key={b.title}
+              className="group relative overflow-hidden border border-border bg-surface/30 p-6 transition-all hover:border-accent/40 hover:bg-surface/50"
+              style={{ borderLeft: "3px solid rgba(91,140,255,0.5)" }}
+            >
+              {/* 도트 패턴 배경 */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-60"
+                style={{
+                  backgroundImage: "radial-gradient(circle, rgba(91,140,255,0.15) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
+              />
+              {/* hover 좌→우 그라디언트 */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{ background: "linear-gradient(90deg, rgba(91,140,255,0.07) 0%, transparent 55%)" }}
+              />
+              {/* 번호 뱃지 */}
+              <span className="absolute top-4 right-4 border border-white/10 px-2 py-0.5 font-mono text-[10px] tracking-[0.18em] text-white/25">
+                [ 0{i + 1} ]
+              </span>
+              <p className="relative text-lg font-bold leading-snug">{b.title}</p>
+              <p className="relative mt-3 text-sm leading-relaxed text-secondary">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── System Status 드롭다운 ────────────────────────────────────── */}
+      <section className="mt-16">
+        <div className="overflow-hidden rounded-xl border border-border bg-surface/30 transition-colors hover:border-green-500/20">
+          {/* 트리거 버튼 */}
+          <button
+            onClick={() => setStatusOpen((p) => !p)}
+            className="relative flex w-full items-center justify-between px-6 py-5 text-left"
+          >
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-[2px]"
+              style={{ background: statusOpen ? "linear-gradient(90deg, transparent, #34D399, transparent)" : undefined }}
+            />
+            <div className="flex items-center gap-4">
+              <div
+                className="h-2 w-2 shrink-0 rounded-full animate-pulse"
+                style={{ background: "#34D399", boxShadow: "0 0 6px #34D399" }}
+              />
+              <div>
+                <p className="font-mono text-sm font-bold tracking-wider text-green-400">SYSTEM STATUS</p>
+                <p className="mt-0.5 text-xs text-secondary">
+                  {statusOpen ? "ALL SYSTEMS OPERATIONAL" : "4개 시스템 운영 현황 확인"}
+                </p>
+              </div>
+            </div>
+            <svg
+              className="h-4 w-4 shrink-0 text-secondary/40 transition-transform duration-300"
+              style={{ transform: statusOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+
+          {/* 드롭다운 패널 */}
+          <div
+            className="overflow-hidden transition-all duration-300"
+            style={{ maxHeight: statusOpen ? 400 : 0, opacity: statusOpen ? 1 : 0 }}
+          >
+            <div className="space-y-px border-t border-white/5 px-3 pb-3 pt-1">
+              {STATUS_SYSTEMS.map((sys) => {
+                const sc = SYS_STATUS_COLOR[sys.status];
+                return (
+                  <Link
+                    key={sys.name}
+                    href={sys.link}
+                    className="group flex items-center justify-between rounded-lg px-3 py-3 transition-colors hover:bg-white/5"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: sc }} />
+                      <div>
+                        <p className="font-mono text-xs font-bold tracking-wider" style={{ color: sys.color }}>
+                          {sys.name}
+                        </p>
+                        <p className="text-[11px] text-secondary/60">{sys.desc}</p>
+                      </div>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-4 text-right">
+                      <div className="hidden sm:block">
+                        <p className="font-mono text-[10px] text-white/25">UPTIME</p>
+                        <p className="font-mono text-xs font-bold text-white/55">{sys.uptime}</p>
+                      </div>
+                      <div>
+                        <p className="font-mono text-[10px] text-white/25">SYNC</p>
+                        <p className="font-mono text-[11px] text-white/40">{sys.lastSync}</p>
+                      </div>
+                      <span
+                        className="rounded border px-1.5 py-0.5 font-mono text-[8px] font-bold tracking-[0.15em]"
+                        style={{ borderColor: sc + "55", color: sc }}
+                      >
+                        {sys.status}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

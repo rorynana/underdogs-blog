@@ -28,6 +28,11 @@
   --color-accent-cyan-glow: var(--accent-cyan-glow);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+  --font-pixel: var(--font-pixel);
+}
+
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
 }
 
 body {
@@ -210,6 +215,11 @@ body {
   50% { opacity: 0; }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Hero title glitch out */
 @keyframes glitchOut {
   0%   { opacity: 1; transform: translate(0);       clip-path: inset(0 0 0 0); }
@@ -231,22 +241,309 @@ body {
 .glitch-out { animation: glitchOut 0.45s ease-out forwards; }
 .glitch-in  { animation: glitchIn  0.45s ease-out forwards; }
 
-/* Pixel robot float */
-@keyframes pixelFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
-.pixel-robot {
-  animation: pixelFloat 3s ease-in-out infinite;
+/* ── Cyberpunk Chalkboard ───────────────────────────────────────────── */
+
+/* Board container */
+.chalkboard-frame {
+  position: relative;
+  width: 100%;
+  padding: 22px 22px 18px;
+  background-color: rgba(8, 9, 13, 0.9);
+  background-image: radial-gradient(circle, rgba(91, 140, 255, 0.14) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border-left: 1px solid rgba(91, 140, 255, 0.12);
+  border-right: 1px solid rgba(91, 140, 255, 0.12);
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Pixel robot eye pulse */
-@keyframes eyePulse {
-  0%, 80%, 100% { opacity: 0.85; }
-  90% { opacity: 0.2; }
+/* CRT scan line sweep */
+.chalkboard-frame::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.3), transparent);
+  animation: chalkScanline 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
 }
-.pixel-eye {
-  animation: eyePulse 5s ease-in-out infinite;
+
+/* L-shaped corner markers */
+.chalk-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+}
+.chalk-corner-tl { top: 5px; left: 5px; border-top: 2px solid rgba(91,140,255,0.6); border-left: 2px solid rgba(91,140,255,0.6); }
+.chalk-corner-tr { top: 5px; right: 5px; border-top: 2px solid rgba(91,140,255,0.6); border-right: 2px solid rgba(91,140,255,0.6); }
+.chalk-corner-bl { bottom: 5px; left: 5px; border-bottom: 2px solid rgba(139,92,246,0.5); border-left: 2px solid rgba(139,92,246,0.5); }
+.chalk-corner-br { bottom: 5px; right: 5px; border-bottom: 2px solid rgba(139,92,246,0.5); border-right: 2px solid rgba(139,92,246,0.5); }
+
+/* Header label bar */
+.chalk-board-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+.chalk-board-status {
+  color: #34D399;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+/* Content regions */
+.chalk-region {
+  position: relative;
+  z-index: 2;
+}
+
+/* Equation row */
+.chalk-equation-row {
+  margin-bottom: 10px;
+  overflow: hidden;
+  animation: chalkReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+.chalk-formula {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(220, 230, 255, 0.82);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 8px rgba(91, 140, 255, 0.4), 0 0 20px rgba(91, 140, 255, 0.12);
+  white-space: nowrap;
+  display: block;
+}
+.chalk-formula sub {
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+/* Dashed divider */
+.chalk-divider {
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(91, 140, 255, 0.22) 0px,
+    rgba(91, 140, 255, 0.22) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin: 10px 0;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  animation: chalkFadeUp 0.5s ease 1.0s both;
+}
+
+/* Flow diagram */
+.chalk-flow-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: nowrap;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.chalk-flow-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+/* Flow nodes */
+.chalk-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 7px;
+  border: 1px solid;
+  border-radius: 2px;
+  opacity: 0;
+  animation: chalkNodePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  white-space: nowrap;
+}
+.chalk-node-pulse {
+  animation: chalkNodePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both,
+             chalkNodeGlow 2.4s ease-in-out 1.4s infinite;
+}
+
+/* Arrow */
+.chalk-arrow {
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background: rgba(138, 143, 152, 0.35);
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0;
+  transform-origin: left center;
+  animation: chalkArrowDraw 0.3s ease both;
+}
+.chalk-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 4px solid rgba(138, 143, 152, 0.35);
+}
+
+/* Annotations */
+.chalk-annotations {
+  margin-top: 2px;
+  position: relative;
+  z-index: 2;
+}
+.chalk-annotation-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: chalkFadeUp 0.5s ease both;
+}
+.chalk-prefix {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.chalk-annotation-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+}
+
+/* Watermark */
+.chalk-watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+
+/* ── Chalkboard Keyframes ─────────────────────────────────────────── */
+@keyframes chalkReveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+  to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+@keyframes chalkFadeUp {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes chalkNodePop {
+  0%   { opacity: 0; transform: scale(0.6); }
+  70%  { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes chalkNodeGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(91, 140, 255, 0.3); }
+  50%       { box-shadow: 0 0 12px rgba(91, 140, 255, 0.7), 0 0 24px rgba(91, 140, 255, 0.2); }
+}
+@keyframes chalkArrowDraw {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+@keyframes chalkScanline {
+  0%   { top: -1px; opacity: 0; }
+  5%   { opacity: 0.12; }
+  95%  { opacity: 0.06; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chalk-equation-row,
+  .chalk-divider,
+  .chalk-node,
+  .chalk-node-pulse,
+  .chalk-arrow,
+  .chalk-annotation-line {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+    transform: none;
+  }
+  .chalkboard-frame::before { display: none; }
+}
+
+/* ── Agent Float Animations (About page) ────────────────────────────── */
+@keyframes agentFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+@keyframes agentFloat2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes agentFloat3 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+@keyframes agentFloat4 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+.agent-float-1 { animation: agentFloat1 3.0s ease-in-out infinite; }
+.agent-float-2 { animation: agentFloat2 3.7s ease-in-out infinite; }
+.agent-float-3 { animation: agentFloat3 4.2s ease-in-out infinite; }
+.agent-float-4 { animation: agentFloat4 3.4s ease-in-out infinite; }
+
+/* ── Agent Stage: Warning Blink + Scan Sweep ───────────────────────── */
+@keyframes warningBlink {
+  0%, 88%, 100% { opacity: 1; }
+  94%            { opacity: 0.08; }
+}
+.warning-blink {
+  animation: warningBlink 2.5s ease-in-out infinite;
+}
+
+@keyframes scanSweep {
+  0%   { top: -2px; opacity: 0.85; }
+  70%  { opacity: 0.6; }
+  100% { top: 100%;  opacity: 0; }
+}
+.scan-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  animation: scanSweep 0.65s ease-out forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes holoPulse {
+  0%, 100% { opacity: 0.65; transform: scaleX(1);    }
+  50%       { opacity: 0.2;  transform: scaleX(1.18); }
+}
+.holo-ring-1 { animation: holoPulse 2.4s ease-in-out infinite; }
+.holo-ring-2 { animation: holoPulse 2.4s ease-in-out infinite; animation-delay: 1.2s; }
+
+@keyframes statBarFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ===== Post Content — Premium Tech Blog Typography ===== */

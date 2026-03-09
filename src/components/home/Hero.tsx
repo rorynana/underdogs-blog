@@ -20,85 +20,106 @@ const LINE_STYLE: Record<string, string> = {
   info: "#8B5CF6",
 };
 
-// ── Pixel Robot (13 × 16, pixel size = 10) ─────────────────────────────────
-const P = 10;
-const ART: string[] = [
-  "    bbbbb    ",
-  "   bbbbbbb   ",
-  "  bbb   bbb  ",
-  "  b p   p b  ",
-  "  bbb   bbb  ",
-  "  b ccccc b  ",
-  "  bbbbbbbbb  ",
-  "   bb   bb   ",
-  "  bbbbbbbbb  ",
-  "  b       b  ",
-  "  b  www  b  ",
-  "  b  www  b  ",
-  "  b       b  ",
-  "  bbbbbbbbb  ",
-  "   bb   bb   ",
-  "   bb   bb   ",
+// ── Cyberpunk Chalkboard — "The Operator's Field Notes" ─────────────────────
+const FLOW_NODES = [
+  { id: "raw",     label: "RAW DATA", color: "#8A8F98", delay: "0.6s" },
+  { id: "agent",   label: "AGENT",    color: "#5B8CFF", delay: "0.9s", pulse: true },
+  { id: "insight", label: "INSIGHT",  color: "#8B5CF6", delay: "1.2s" },
+  { id: "action",  label: "ACTION",   color: "#34D399", delay: "1.5s" },
 ];
-const PIXEL_COLORS: Record<string, string> = {
-  b: "#5B8CFF",
-  p: "#8B5CF6",
-  c: "#06B6D4",
-  w: "#FFFFFF",
-};
 
-function PixelRobot() {
-  const cols = ART[0].length;
-  const rows = ART.length;
+const ANNOTATIONS = [
+  { prefix: "✓", text: "3 agents running",  color: "#34D399", delay: "1.8s" },
+  { prefix: "✓", text: "12 signals live",   color: "#34D399", delay: "2.2s" },
+  { prefix: "?", text: "next: scale",       color: "#8B5CF6", delay: "2.6s" },
+];
+
+function CyberpunkChalkboard() {
   return (
-    <svg
-      width={cols * P}
-      height={rows * P}
-      className="pixel-robot"
-      style={{
-        imageRendering: "pixelated",
-        filter: "drop-shadow(0 0 10px rgba(91,140,255,0.5))",
-      }}
-    >
-      {ART.flatMap((row, y) =>
-        row.split("").map((ch, x) => {
-          const fill = PIXEL_COLORS[ch];
-          if (!fill) return null;
-          const isEye = ch === "p";
-          return (
-            <rect
-              key={`${x}-${y}`}
-              x={x * P}
-              y={y * P}
-              width={P}
-              height={P}
-              fill={fill}
-              opacity={0.85}
-              className={isEye ? "pixel-eye" : undefined}
-            />
-          );
-        })
-      )}
-    </svg>
+    <div className="chalkboard-frame">
+      <span className="chalk-corner chalk-corner-tl" />
+      <span className="chalk-corner chalk-corner-tr" />
+      <span className="chalk-corner chalk-corner-bl" />
+      <span className="chalk-corner chalk-corner-br" />
+
+      {/* Header */}
+      <div className="chalk-board-label">
+        <span>FIELD_NOTES.md</span>
+        <span className="chalk-board-status">● LIVE</span>
+      </div>
+
+      {/* Region A: Equation */}
+      <div className="chalk-region chalk-equation-row">
+        <span className="chalk-formula">
+          SIGNAL<sub>(t)</sub> = data × context / noise
+        </span>
+      </div>
+
+      {/* Divider */}
+      <div className="chalk-divider" />
+
+      {/* Region B: Flow diagram */}
+      <div className="chalk-region chalk-flow-row">
+        {FLOW_NODES.map((node, i) => (
+          <div key={node.id} className="chalk-flow-item">
+            <span
+              className={`chalk-node${node.pulse ? " chalk-node-pulse" : ""}`}
+              style={{
+                borderColor: node.color,
+                color: node.color,
+                animationDelay: node.delay,
+              }}
+            >
+              {node.label}
+            </span>
+            {i < FLOW_NODES.length - 1 && (
+              <span
+                className="chalk-arrow"
+                style={{ animationDelay: `calc(${node.delay} + 0.25s)` }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Region C: Annotations */}
+      <div className="chalk-region chalk-annotations">
+        {ANNOTATIONS.map((note, i) => (
+          <div
+            key={i}
+            className="chalk-annotation-line"
+            style={{ animationDelay: note.delay }}
+          >
+            <span className="chalk-prefix" style={{ color: note.color }}>
+              {note.prefix}
+            </span>
+            <span className="chalk-annotation-text">{note.text}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="chalk-watermark">— Feynman Method</div>
+    </div>
   );
 }
 
 // ── Title phase state machine ────────────────────────────────────────────────
-type TitlePhase = 'typing' | 'matrix' | 'final';
-const FEYNMAN = "What I cannot create, I do not understand.";
-const TARGET  = "What I can understand, I can build.";
+type TitlePhase = 'typing' | 'scan' | 'final';
+const FEYNMAN = "What I cannot create,\nI do not understand.";
 
 // ── Main Hero ───────────────────────────────────────────────────────────────
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const titleCanvasRef = useRef<HTMLCanvasElement>(null);
   const [visibleLines, setVisibleLines] = useState<{ text: string; type: string }[]>([]);
   const [typingDone, setTypingDone] = useState(false);
   const [stats, setStats] = useState({ mem: 4128, cpu: 8 });
 
   // Title animation state
-  const [titlePhase, setTitlePhase] = useState<TitlePhase>('typing');
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+  const [titlePhase, setTitlePhase] = useState<TitlePhase>(isMobile ? 'final' : 'typing');
   const [typedTitle, setTypedTitle] = useState('');
+  const [scanProgress, setScanProgress] = useState(0);
+  const [showTagline, setShowTagline] = useState(isMobile);
 
   // Particle canvas
   useEffect(() => {
@@ -188,8 +209,9 @@ export default function Hero() {
     return () => clearTimeout(timeout);
   }, []);
 
-  // Title animation: typing → matrix
+  // Phase 1: Feynman 원문 타이핑
   useEffect(() => {
+    if (titlePhase !== 'typing') return;
     let t1: ReturnType<typeof setTimeout>;
     let t2: ReturnType<typeof setTimeout>;
     let i = 0;
@@ -200,93 +222,37 @@ export default function Hero() {
         i++;
         t1 = setTimeout(type, 45);
       } else {
-        t2 = setTimeout(() => setTitlePhase('matrix'), 800);
+        t2 = setTimeout(() => setTitlePhase('scan'), 800);
       }
     }
 
     t1 = setTimeout(type, 1000);
     return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
+  }, [titlePhase]);
 
-  // Matrix rain canvas (h1 영역 위에서 실행)
+  // Phase 2: 청록 스캔라인 sweep
   useEffect(() => {
-    if (titlePhase !== 'matrix') return;
-    const canvas = titleCanvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const c = ctx;
-
-    const W = canvas.offsetWidth || 480;
-    const H = canvas.offsetHeight || 140;
-    const cv = canvas;
-    cv.width  = W;
-    cv.height = H;
-    cv.style.opacity = '1';
-
-    const FS    = 15;
-    const COLS  = Math.floor(W / FS);
-    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*<>|/?:;';
-    const drops = Array.from({ length: COLS }, () => Math.floor(Math.random() * -12));
-
-    let frame = 0;
-    const RAIN   = 100;
-    const FADE   = 35;
-    const TOTAL  = RAIN + FADE;
+    if (titlePhase !== 'scan') return;
+    const START = performance.now();
+    const DURATION = 1400;
     let animId: number;
 
-    function draw() {
-      // 잔상 (어두운 배경 누적 → Matrix 트레일)
-      c.fillStyle = 'rgba(10, 11, 15, 0.12)';
-      c.fillRect(0, 0, W, H);
-
-      c.font = `bold ${FS}px "JetBrains Mono", monospace`;
-
-      drops.forEach((y, col) => {
-        const x = col * FS;
-        const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
-
-        // 선두: 밝은 흰-초록 (눈에 확 들어오는 leading char)
-        c.fillStyle = '#CCFFCC';
-        c.shadowBlur = 6;
-        c.shadowColor = '#00FF41';
-        c.fillText(ch, x, y * FS);
-
-        // 2번째: 밝은 초록
-        c.fillStyle = '#00FF41';
-        c.shadowBlur = 4;
-        c.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], x, (y - 1) * FS);
-
-        // 3~4번째: 어두운 초록 (꼬리)
-        c.fillStyle = '#009922';
-        c.shadowBlur = 0;
-        c.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], x, (y - 2) * FS);
-        c.fillStyle = '#004410';
-        c.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], x, (y - 3) * FS);
-
-        if (drops[col] * FS > H && Math.random() > 0.975) drops[col] = 0;
-        drops[col]++;
-      });
-
-      c.shadowBlur = 0;
-      frame++;
-
-      // 마지막 FADE 프레임에서 캔버스 자체를 페이드 아웃
-      if (frame >= RAIN) {
-        const t = (frame - RAIN) / FADE;
-        cv.style.opacity = String(Math.max(0, 1 - t));
-      }
-
-      if (frame < TOTAL) {
-        animId = requestAnimationFrame(draw);
+    function step(now: number) {
+      const p = Math.min((now - START) / DURATION, 1);
+      setScanProgress(p);
+      if (p < 1) {
+        animId = requestAnimationFrame(step);
       } else {
-        cv.style.opacity = '0';
-        setTitlePhase('final');
+        setTimeout(() => setTitlePhase('final'), 150);
       }
     }
-
-    animId = requestAnimationFrame(draw);
+    animId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animId);
+  }, [titlePhase]);
+
+  // Tagline 등장: titlePhase가 final 되면 트리거
+  useEffect(() => {
+    if (titlePhase === 'final') setShowTagline(true);
   }, [titlePhase]);
 
   // Live stats fluctuation
@@ -346,15 +312,15 @@ export default function Hero() {
           {/* ── Body ── */}
           <div className="grid sm:grid-cols-2">
             {/* Left: text */}
-            <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
+            <div className="flex flex-col justify-between p-6 sm:p-10 lg:p-14">
               <span className="section-label">AI-Driven Marketing</span>
 
-              {/* Phase 1: 타이핑 */}
+              {/* Phase 1: Feynman 원문 타이핑 */}
               {titlePhase === 'typing' && (
                 <div className="mt-4">
                   <h1
-                    className="text-3xl font-bold leading-snug tracking-tight text-white sm:text-4xl lg:text-5xl"
-                    style={{ textShadow: '0 0 20px rgba(91,140,255,0.3)' }}
+                    className="text-2xl font-bold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl"
+                    style={{ textShadow: '0 0 20px rgba(91,140,255,0.25)', whiteSpace: 'pre-line' }}
                   >
                     {typedTitle}
                     <span
@@ -362,40 +328,108 @@ export default function Hero() {
                       style={{ animation: 'blink 1s step-end infinite' }}
                     />
                   </h1>
-                  <p className="mt-2 font-mono text-sm text-secondary/50">— Richard Feynman</p>
+                  <p className="mt-2 font-mono text-sm text-white/55 tracking-widest">
+                    — Richard Feynman
+                  </p>
                 </div>
               )}
 
-              {/* Phase 2: 매트릭스 비 (h1 영역 캔버스) */}
-              {titlePhase === 'matrix' && (
-                <div
-                  className="mt-4 relative rounded-lg overflow-hidden"
-                  style={{ minHeight: '9rem' }}
-                >
-                  <canvas
-                    ref={titleCanvasRef}
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-              )}
-
-              {/* Phase 3: 최종 정착 */}
-              {titlePhase === 'final' && (
+              {/* Phase 2: 청록 스캔라인 sweep — 파인만→내 해석 crossfade */}
+              {titlePhase === 'scan' && (
                 <div className="mt-4">
+                  {/* 스캔 존: h1 영역만 relative로 감쌈 */}
+                  <div className="relative">
+                    {/* invisible spacer: 새 텍스트 기준으로 높이 유지 */}
+                    <h1
+                      className="invisible text-2xl font-bold leading-snug tracking-tight sm:text-3xl lg:text-4xl"
+                      aria-hidden="true"
+                    >
+                      What I can understand,
+                      <br />I can build.
+                    </h1>
+
+                    {/* 구 텍스트 (파인만): 스캔 진행에 따라 fade out */}
+                    <h1
+                      className="absolute inset-0 text-2xl font-bold leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl"
+                      style={{
+                        opacity: Math.max(0, 1 - scanProgress * 1.8),
+                        textShadow: '0 0 20px rgba(91,140,255,0.25)',
+                        whiteSpace: 'pre-line',
+                      }}
+                    >
+                      {`What I cannot create,\nI do not understand.`}
+                    </h1>
+
+                    {/* 신 텍스트 (내 해석): 39%부터 fade in */}
+                    <h1
+                      className="absolute inset-0 gradient-text text-2xl font-bold leading-snug tracking-tight sm:text-3xl lg:text-4xl"
+                      style={{
+                        opacity: Math.max(0, scanProgress * 1.8 - 0.7),
+                        textShadow: '0 0 40px rgba(91,140,255,0.4), 0 0 80px rgba(139,92,246,0.2)',
+                      }}
+                    >
+                      What I can understand,
+                      <br />I can build.
+                    </h1>
+
+                    {/* 스캔라인: h1 wrapper 기준 0→100% */}
+                    <div
+                      className="absolute left-[-6%] right-[-6%] pointer-events-none"
+                      style={{
+                        top: `${scanProgress * 100}%`,
+                        height: '2px',
+                        background:
+                          'linear-gradient(90deg, transparent 0%, #06B6D4 20%, #5B8CFF 50%, #06B6D4 80%, transparent 100%)',
+                        boxShadow: '0 0 8px #06B6D4, 0 0 24px rgba(6,182,212,0.5)',
+                        opacity:
+                          scanProgress < 0.92 ? 1 : Math.max(0, 1 - (scanProgress - 0.92) / 0.08),
+                      }}
+                    />
+                  </div>
+
+                  {/* Attribution: 스캔 초반에 fade out */}
+                  <p
+                    className="mt-2 font-mono text-xs tracking-widest"
+                    style={{
+                      color: '#06B6D4',
+                      opacity: Math.max(0, (1 - scanProgress * 3) * 0.7),
+                    }}
+                  >
+                    — Richard Feynman
+                  </p>
+                </div>
+              )}
+
+              {/* Phase 3: 내 해석 fadeInUp */}
+              {titlePhase === 'final' && (
+                <div className="mt-4" style={{ animation: 'fadeInUp 0.4s ease forwards' }}>
                   <h1
-                    className="gradient-text text-3xl font-bold leading-snug tracking-tight sm:text-4xl lg:text-5xl"
+                    className="gradient-text text-2xl font-bold leading-snug tracking-tight sm:text-3xl lg:text-4xl"
                     style={{ textShadow: '0 0 40px rgba(91,140,255,0.4), 0 0 80px rgba(139,92,246,0.2)' }}
                   >
                     What I can understand,
                     <br />I can build.
                   </h1>
-                  <p className="mt-2 font-mono text-sm text-accent/60">— The Underdogs</p>
+                  <p className="mt-2 font-mono text-sm text-white/55 tracking-widest">
+                    — The Underdogs
+                  </p>
                 </div>
               )}
 
-              <p className="mt-5 max-w-md text-base leading-relaxed text-secondary sm:text-lg">
-                Building intelligent marketing systems
-                that automate decisions, not just tasks.
+              <p className="mt-5 text-lg font-semibold leading-snug text-white/80 sm:text-xl">
+                {"I build systems that work while I sleep.".split(" ").map((word, i) => (
+                  <span
+                    key={i}
+                    className="inline-block mr-[0.28em]"
+                    style={showTagline ? {
+                      opacity: 0,
+                      animation: 'fadeInUp 0.4s ease forwards',
+                      animationDelay: `${0.2 + i * 0.07}s`,
+                    } : { opacity: 0 }}
+                  >
+                    {word}
+                  </span>
+                ))}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -415,11 +449,11 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right: pixel art + terminal */}
-            <div className="flex flex-col border-t border-white/5 sm:border-t-0 sm:border-l">
-              {/* Pixel robot */}
-              <div className="flex items-center justify-center border-b border-white/5 py-7">
-                <PixelRobot />
+            {/* Right: chalkboard + terminal — 데스크탑만 */}
+            <div className="hidden sm:flex flex-col sm:border-l border-white/5">
+              {/* Cyberpunk chalkboard */}
+              <div className="border-b border-white/5 py-5 px-3">
+                <CyberpunkChalkboard />
               </div>
 
               {/* Terminal output */}
@@ -450,6 +484,35 @@ export default function Hero() {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* 모바일 전용 compact 뷰 */}
+          <div className="sm:hidden border-t border-white/5 px-5 py-4 space-y-3">
+            {/* Flow 1줄 */}
+            <div className="flex items-center justify-between">
+              {FLOW_NODES.map((node, i) => (
+                <div key={node.id} className="flex items-center gap-1.5">
+                  <span
+                    className="font-mono text-[9px] tracking-[0.1em] px-1.5 py-0.5 rounded border"
+                    style={{ borderColor: node.color + "55", color: node.color }}
+                  >
+                    {node.label}
+                  </span>
+                  {i < FLOW_NODES.length - 1 && (
+                    <span className="text-white/20 text-[10px]">›</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            {/* 터미널 stats 요약 */}
+            <div className="font-mono text-[11px] space-y-0.5">
+              {ANNOTATIONS.map((note, i) => (
+                <div key={i} className="flex items-center gap-1.5">
+                  <span style={{ color: note.color }}>{note.prefix}</span>
+                  <span className="text-white/40">{note.text}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import TechBadge from "@/components/ui/TechBadge";
 import Giscus from "@/components/post/Giscus";
 import ShareButtons from "@/components/post/ShareButtons";
+import ReadingProgress from "@/components/post/ReadingProgress";
 import type { PostMeta } from "@/lib/content";
 
 interface PostLayoutProps {
@@ -10,6 +11,8 @@ interface PostLayoutProps {
 
 export default function PostLayout({ meta, children }: PostLayoutProps) {
   return (
+    <>
+    <ReadingProgress category={meta.category} />
     <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <header className="mb-8 sm:mb-16">
         <p className="text-sm text-secondary tracking-wide">{meta.date}</p>
@@ -32,5 +35,6 @@ export default function PostLayout({ meta, children }: PostLayoutProps) {
       <ShareButtons meta={meta} />
       <Giscus />
     </article>
+    </>
   );
 }
