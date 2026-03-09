@@ -19,6 +19,9 @@ build/
 npm-debug.log*
 pnpm-debug.log*
 
+# lighthouse
+lighthouse-report*.json
+
 # vercel
 .vercel
 
