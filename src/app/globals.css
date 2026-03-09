@@ -736,6 +736,27 @@ body {
   margin-bottom: 4rem;
 }
 
+/* ---- Mockup caption ---- */
+.post-content .mockup-note {
+  margin-top: -1.8em;
+  margin-bottom: 2.5em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.post-content .mockup-note::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
 /* ---- Images ---- */
 .post-content img:not(.gif-embed) {
   display: block;
