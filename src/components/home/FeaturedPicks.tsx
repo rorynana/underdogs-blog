@@ -62,6 +62,7 @@ export default function FeaturedPicks({ posts }: { posts: PostMeta[] }) {
                     src={post.thumbnail}
                     alt={post.title}
                     fill
+                    priority={i < 2}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes={i === 0 ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 100vw, 33vw"}
                   />

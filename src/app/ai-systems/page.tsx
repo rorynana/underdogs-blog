@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
 import { getPostsByCategory } from "@/lib/content";
 import PostCard from "@/components/post/PostCard";
+import { SITE } from "@/lib/constants";
 
-export const metadata = {
-  title: "AI Driven — The Underdogs",
+export const metadata: Metadata = {
+  title: "AI Driven",
   description: "AI 에이전트, 자동화 시스템 구축기",
+  alternates: { canonical: `${SITE.siteUrl}/ai-systems` },
+  openGraph: {
+    title: "AI Driven — The Underdogs",
+    description: "AI 에이전트, 자동화 시스템 구축기",
+    url: `${SITE.siteUrl}/ai-systems`,
+    type: "website",
+    images: [{ url: `/api/og?title=AI+Driven&subtitle=${encodeURIComponent("AI 에이전트 자동화 시스템")}&category=ai-systems`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Driven — The Underdogs",
+    description: "AI 에이전트, 자동화 시스템 구축기",
+    images: [`/api/og?title=AI+Driven&subtitle=${encodeURIComponent("AI 에이전트 자동화 시스템")}&category=ai-systems`],
+  },
 };
 
 export default function AiSystemsPage() {

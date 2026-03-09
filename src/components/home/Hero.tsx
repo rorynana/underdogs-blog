@@ -114,12 +114,11 @@ export default function Hero() {
   const [typingDone, setTypingDone] = useState(false);
   const [stats, setStats] = useState({ mem: 4128, cpu: 8 });
 
-  // Title animation state
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-  const [titlePhase, setTitlePhase] = useState<TitlePhase>(isMobile ? 'final' : 'typing');
+  // Title animation state (서버/클라이언트 일치를 위해 항상 'typing'으로 초기화)
+  const [titlePhase, setTitlePhase] = useState<TitlePhase>('typing');
   const [typedTitle, setTypedTitle] = useState('');
   const [scanProgress, setScanProgress] = useState(0);
-  const [showTagline, setShowTagline] = useState(isMobile);
+  const [showTagline, setShowTagline] = useState(false);
 
   // Particle canvas
   useEffect(() => {
@@ -254,6 +253,13 @@ export default function Hero() {
   useEffect(() => {
     if (titlePhase === 'final') setShowTagline(true);
   }, [titlePhase]);
+
+  // 모바일: 마운트 후 즉시 final 상태로 (hydration 안전)
+  useEffect(() => {
+    if (window.innerWidth < 640) {
+      setTitlePhase('final');
+    }
+  }, []);
 
   // Live stats fluctuation
   useEffect(() => {
@@ -487,8 +493,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 모바일 전용 compact 뷰 */}
-          <div className="sm:hidden border-t border-white/5 px-5 py-4 space-y-3">
+          {/* 모바일 전용 compact 뷰 (데코레이션) */}
+          <div className="sm:hidden border-t border-white/5 px-5 py-4 space-y-3" aria-hidden="true">
             {/* Flow 1줄 */}
             <div className="flex items-center justify-between">
               {FLOW_NODES.map((node, i) => (

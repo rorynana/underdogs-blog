@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
 import { getPostsByCategory } from "@/lib/content";
 import PostCard from "@/components/post/PostCard";
+import { SITE } from "@/lib/constants";
 
-export const metadata = {
-  title: "Digital Marketing — The Underdogs",
+export const metadata: Metadata = {
+  title: "Digital Marketing",
   description: "퍼포먼스 마케팅, 전략, 광고 운영 실무",
+  alternates: { canonical: `${SITE.siteUrl}/marketing` },
+  openGraph: {
+    title: "Digital Marketing — The Underdogs",
+    description: "퍼포먼스 마케팅, 전략, 광고 운영 실무",
+    url: `${SITE.siteUrl}/marketing`,
+    type: "website",
+    images: [{ url: `/api/og?title=Digital+Marketing&subtitle=${encodeURIComponent("퍼포먼스 마케팅 전략 실무")}&category=marketing`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing — The Underdogs",
+    description: "퍼포먼스 마케팅, 전략, 광고 운영 실무",
+    images: [`/api/og?title=Digital+Marketing&subtitle=${encodeURIComponent("퍼포먼스 마케팅 전략 실무")}&category=marketing`],
+  },
 };
 
 export default function MarketingPage() {

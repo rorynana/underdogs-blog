@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import CurrentlyBuilding from "@/components/home/CurrentlyBuilding";
 import FeaturedPicks from "@/components/home/FeaturedPicks";
@@ -6,7 +7,12 @@ import BrowseByCategory from "@/components/home/BrowseByCategory";
 import OperatorProfile from "@/components/home/OperatorProfile";
 import NewsletterForm from "@/components/ui/NewsletterForm";
 import { getAllPosts, getPostsByCategory } from "@/lib/content";
-import { CATEGORIES } from "@/lib/constants";
+import { CATEGORIES, SITE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: SITE.title,
+  alternates: { canonical: SITE.siteUrl },
+};
 
 export default function Home() {
   const allPosts = getAllPosts();

@@ -83,7 +83,6 @@ export default function Header() {
             onClick={() => {
               window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
             }}
-            aria-label="Search"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -96,9 +95,9 @@ export default function Header() {
           <button
             className="md:hidden font-mono text-xs tracking-[0.15em] text-white/60 hover:text-accent transition-colors"
             onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
           >
-            {">_"}
+            <span aria-hidden="true">{">_"}</span>
+            <span className="sr-only">Open menu</span>
           </button>
         </div>
       </header>
@@ -128,9 +127,9 @@ export default function Header() {
           <button
             onClick={() => setMobileOpen(false)}
             className="font-mono text-xs tracking-[0.15em] text-white/40 transition-colors hover:text-accent"
-            aria-label="Close menu"
           >
-            [ ESC ]
+            <span aria-hidden="true">[ ESC ]</span>
+            <span className="sr-only">Close menu</span>
           </button>
         </div>
 

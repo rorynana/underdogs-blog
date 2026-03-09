@@ -3,6 +3,9 @@ export const SITE = {
   title: "The Underdogs — AI Driven Marketing Systems",
   description: "Building intelligent marketing systems that automate decisions, not just tasks.",
   author: "Seongyun Jang",
+  siteUrl: "https://the-underdogs.kr",
+  twitterHandle: "",
+  locale: "ko_KR",
 } as const;
 
 export const NAV_ITEMS = [

@@ -27,7 +27,7 @@ const TITLE_HOVER_CLASS: Record<string, string> = {
   insights: "group-hover:text-accent-cyan",
 };
 
-export default function PostCard({ post }: { post: PostMeta }) {
+export default function PostCard({ post, isPriority = false }: { post: PostMeta; isPriority?: boolean }) {
   const catKey = CATEGORY_KEY[post.category] || "marketing";
   const cornerColor = CORNER_COLOR[post.category] || "#5B8CFF";
 
@@ -51,6 +51,7 @@ export default function PostCard({ post }: { post: PostMeta }) {
             src={post.thumbnail}
             alt={post.title}
             fill
+            priority={isPriority}
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />

@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
 import { getPostsByCategory } from "@/lib/content";
 import PostCard from "@/components/post/PostCard";
+import { SITE } from "@/lib/constants";
 
-export const metadata = {
-  title: "Field Notes — The Underdogs",
+export const metadata: Metadata = {
+  title: "Field Notes",
   description: "시장분석, 브랜드 창업, 현장 기록",
+  alternates: { canonical: `${SITE.siteUrl}/insights` },
+  openGraph: {
+    title: "Field Notes — The Underdogs",
+    description: "시장분석, 브랜드 창업, 현장 기록",
+    url: `${SITE.siteUrl}/insights`,
+    type: "website",
+    images: [{ url: `/api/og?title=Field+Notes&subtitle=${encodeURIComponent("시장분석 브랜드 창업 현장 기록")}&category=insights`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Field Notes — The Underdogs",
+    description: "시장분석, 브랜드 창업, 현장 기록",
+    images: [`/api/og?title=Field+Notes&subtitle=${encodeURIComponent("시장분석 브랜드 창업 현장 기록")}&category=insights`],
+  },
 };
 
 export default function InsightsPage() {

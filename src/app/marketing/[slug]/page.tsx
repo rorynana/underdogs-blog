@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getPost, getPostsByCategory } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
 import PostLayout from "@/components/post/PostLayout";
+import { SITE } from "@/lib/constants";
 
 export async function generateStaticParams() {
   const posts = getPostsByCategory("marketing");
@@ -20,12 +21,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.meta.title} — The Underdogs`,
     description: post.meta.subtitle || post.meta.description,
+    alternates: {
+      canonical: `${SITE.siteUrl}/marketing/${slug}`,
+    },
     openGraph: {
       type: "article" as const,
       title: post.meta.title,
       description: post.meta.subtitle || post.meta.description,
       images: [{ url: ogImage, width: 1200, height: 630 }],
       publishedTime: post.meta.date,
+      authors: [SITE.author],
+      tags: post.meta.techStack,
     },
     twitter: {
       card: "summary_large_image" as const,
