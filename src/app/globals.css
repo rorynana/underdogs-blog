@@ -107,11 +107,20 @@ body {
   border-color: rgba(6, 182, 212, 0.65);
   box-shadow: 0 0 28px rgba(6, 182, 212, 0.4), 0 0 60px rgba(6, 182, 212, 0.12), inset 0 0 20px rgba(6, 182, 212, 0.05);
 }
+.neon-card-philosophy {
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15), inset 0 0 12px rgba(245, 158, 11, 0.03);
+}
+.neon-card-philosophy:hover {
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 0 28px rgba(245, 158, 11, 0.4), 0 0 60px rgba(245, 158, 11, 0.12), inset 0 0 20px rgba(245, 158, 11, 0.05);
+}
 
 /* ===== Category Accent Line (card top) ===== */
 .accent-line-ai         { background: linear-gradient(90deg, #8B5CF6, #5B8CFF, transparent); }
 .accent-line-marketing  { background: linear-gradient(90deg, #5B8CFF, #3B6FFF, transparent); }
 .accent-line-insights   { background: linear-gradient(90deg, #06B6D4, #0891B2, transparent); }
+.accent-line-philosophy { background: linear-gradient(90deg, #F59E0B, #D97706, transparent); }
 
 /* ===== Cyber Corner Markers ===== */
 .cyber-corner {
@@ -130,7 +139,8 @@ body {
 /* ===== Neon Badges (category) ===== */
 .neon-badge-ai        { color: #8B5CF6; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.45); box-shadow: 0 0 8px rgba(139,92,246,0.25); }
 .neon-badge-marketing { color: #5B8CFF; background: rgba(91,140,255,0.1); border: 1px solid rgba(91,140,255,0.45); box-shadow: 0 0 8px rgba(91,140,255,0.25); }
-.neon-badge-insights  { color: #06B6D4; background: rgba(6,182,212,0.1);  border: 1px solid rgba(6,182,212,0.45);  box-shadow: 0 0 8px rgba(6,182,212,0.25); }
+.neon-badge-insights    { color: #06B6D4; background: rgba(6,182,212,0.1);  border: 1px solid rgba(6,182,212,0.45);  box-shadow: 0 0 8px rgba(6,182,212,0.25); }
+.neon-badge-philosophy  { color: #F59E0B; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.45); box-shadow: 0 0 8px rgba(245,158,11,0.25); }
 
 /* ===== Section Label Glow Badge ===== */
 .section-label {
@@ -911,6 +921,18 @@ body {
   color: var(--accent);
   font-style: normal;
   font-weight: 700;
+}
+
+/* ---- Post Lead (opening hook paragraph) ---- */
+.post-content .post-lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.95);
+  border-left: 3px solid #F59E0B;
+  padding-left: 1.5rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.01em;
 }
 
 /* ---- Stat Grid (IR deck style) ---- */
