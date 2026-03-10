@@ -54,21 +54,8 @@ featured: boolean
 
 ## 코드 패턴 레지스트리
 
-새 기능 추가 시 아래 파일을 참조 패턴으로 사용:
-
-| 패턴 | 참조 파일 |
-|------|----------|
-| 동적 라우트 페이지 | `src/app/marketing/[slug]/page.tsx` |
-| 카테고리 목록 페이지 | `src/app/marketing/page.tsx` |
-| MDX 렌더링 | `src/lib/mdx.ts` |
-| 콘텐츠 조회 (CRUD) | `src/lib/content.ts` |
-| 사이트 상수 | `src/lib/constants.ts` |
-| 레이아웃 구조 | `src/app/layout.tsx` |
-| 포스트 카드 컴포넌트 | `src/components/post/PostCard.tsx` |
-| 포스트 본문 레이아웃 | `src/components/post/PostLayout.tsx` |
-| 홈 섹션 컴포넌트 | `src/components/home/Hero.tsx` |
-| 공통 UI 컴포넌트 | `src/components/ui/TechBadge.tsx` |
-| 커스텀 훅 | `src/hooks/useScrollAnimation.ts` |
+새 기능 추가 시 기존 파일을 참조 패턴으로 사용.
+핵심 참조: `src/app/marketing/[slug]/page.tsx` (동적 라우트), `src/lib/mdx.ts` (MDX), `src/lib/content.ts` (CRUD), `src/lib/constants.ts` (상수), `src/components/post/PostLayout.tsx` (포스트 레이아웃)
 
 ---
 
@@ -92,29 +79,10 @@ sot/             → 상태/이력 기록 (Source of Truth)
 ```
 
 ### 오케스트레이터 목록
-| 파일 | 역할 |
-|------|------|
-| `blog-build.md` | 블로그 빌드 전체 Task 관리 (Task 1~8) |
-| `content-generate.md` | 솔루션 → 블로그 포스트 자동 생성 (4-Phase) |
-| `content-publish.md` | MDX 콘텐츠 작성/퍼블리싱 |
-| `design-review.md` | 디자인 시스템 검수 |
+`blog-build.md` / `content-generate.md` / `content-publish.md` / `design-review.md`
 
 ### 스킬 목록
-| 스킬 | 역할 |
-|------|------|
-| `setup-project.md` | 프로젝트 초기 세팅 |
-| `build-layout.md` | 레이아웃 & 네비게이션 |
-| `build-pages.md` | 페이지 빌드 |
-| `build-components.md` | MDX 콘텐츠 시스템 |
-| `apply-design-system.md` | 디자인 시스템 적용/검수 |
-| `write-content.md` | MDX 콘텐츠 작성 |
-| `optimize-deploy.md` | SEO/성능/배포 |
-| `solution-registry.md` | 솔루션 프로젝트 경로 레지스트리 |
-| `explore-solution.md` | 솔루션 코드베이스 탐색/분석 |
-| `learn-writing-style.md` | 기존 글 톤앤매너 학습 |
-| `draft-post.md` | MDX 초안 작성 |
-| `curate-media.md` | 이미지/GIF 큐레이션 |
-| `review-post.md` | 포스트 기술 검수 |
+`setup-project.md` / `build-layout.md` / `build-pages.md` / `build-components.md` / `apply-design-system.md` / `write-content.md` / `optimize-deploy.md` / `solution-registry.md` / `explore-solution.md` / `learn-writing-style.md` / `draft-post.md` / `curate-media.md` / `review-post.md`
 
 ### 새 기능 추가 사이클
 1. **Research** — 관련 오케스트레이터/스킬 확인, PRD(`guide.md`) 참조
@@ -143,6 +111,36 @@ sot/             → 상태/이력 기록 (Source of Truth)
 - 이미지 없음 → GIF 비율 높이기, 사용자에게 스크린샷 요청
 - pnpm 관련 → `node_modules` 복사 금지, 반드시 `pnpm install`
 - 초안 품질 미달 → 분석 리포트 보충 후 재작성
+
+---
+
+## 🔥 현재 진행 중 (2026-03-10)
+
+### Philosophy & AI 카테고리 첫 포스트 작성 중
+
+**완료된 것**
+- [x] Philosophy & AI 카테고리 신설 (constants.ts, globals.css, page 파일, [slug] 페이지)
+- [x] CSS: neon-card-philosophy / accent-line-philosophy / neon-badge-philosophy (amber #F59E0B)
+- [x] sot/philosophy-ai-ideas.md 생성 (아이데이션 프레임워크, gpt.md 기반)
+- [x] ★1 방향 컨펌 완료
+
+**확정된 포스트 정보**
+- slug: `pattern-and-awareness`
+- 제목: "나는 지금 선택하고 있는가, 자동 재생 중인가"
+- 부제: "매트릭스, 불교, AI가 같은 구조를 가리키고 있다"
+- 각도: 구조 분석형 (매트릭스/불교/AI 세 프레임 나란히 놓고 공통 구조 해부)
+- 카테고리: philosophy
+
+**다음 할 일**
+- [ ] ★2 초안 컨펌 — 초안은 대화에 텍스트로 제시된 상태. 사용자 승인 받으면 파일 저장
+- [ ] ★2.5 내러티브 검증 — 팩트 체크 (매트릭스 빨간 알약 이미 수정됨)
+- [ ] Phase 3: 미디어 (이미지/GIF 없음, philosophy 카테고리 특성상 SVG 또는 GIF 검토)
+- [ ] Phase 4: 빌드 테스트 + SOT 업데이트
+
+**재개 시 참조**
+- 초안 전문: 직전 대화에서 텍스트로 제시 (stat-grid + callout-highlight 포함)
+- 소스: gpt.md (10,517줄) — 불교/AI/매트릭스 대화 원본
+- 아이데이션 가이드: sot/philosophy-ai-ideas.md
 
 ---
 

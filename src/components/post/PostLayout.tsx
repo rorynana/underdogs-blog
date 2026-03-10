@@ -31,6 +31,16 @@ export default function PostLayout({ meta, children }: PostLayoutProps) {
     <JsonLd data={articleSchema} />
     <ReadingProgress category={meta.category} />
     <article lang="ko" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+      {meta.thumbnail && (
+        <div className="mb-6 sm:mb-10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={meta.thumbnail}
+            alt={meta.title}
+            className="w-full h-auto block"
+          />
+        </div>
+      )}
       <header className="mb-8 sm:mb-16">
         <p className="text-sm text-secondary tracking-wide">{meta.date}</p>
         <h1 className="mt-4 text-[1.75rem] sm:text-[2.25rem] leading-[1.2] font-extrabold tracking-[-0.035em]">{meta.title}</h1>
