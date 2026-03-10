@@ -16,12 +16,20 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const allPosts = getAllPosts();
-  const aiFeatured = getPostsByCategory("ai-systems").filter((p) => p.featured);
-  const onestock = aiFeatured.find((p) => p.slug === "onestock-ai-production-intelligence");
-  const othersAI = aiFeatured.filter((p) => p.slug !== "onestock-ai-production-intelligence");
-  const orderedAI = onestock ? [othersAI[0], onestock, ...othersAI.slice(1)] : aiFeatured;
-  const extraPicks = allPosts.filter((p) => p.slug === "stainless-cookware-market-1");
-  const featuredPosts = [...orderedAI, ...extraPicks];
+  const allPostsPool = [
+    ...allPosts,
+    ...getPostsByCategory("philosophy"),
+  ];
+  const featuredSlugs = [
+    "market-monitoring-automation",
+    "onestock-ai-production-intelligence",
+    "pattern-and-awareness",
+    "marketing-intelligence-dashboard",
+    "tubescout-youtube-creator-scoring",
+  ];
+  const featuredPosts = featuredSlugs
+    .map((slug) => allPostsPool.find((p) => p.slug === slug))
+    .filter(Boolean) as typeof allPosts;
   const latestPosts = allPosts.slice(0, 6);
 
   const categoryData = CATEGORIES.map((cat) => ({
