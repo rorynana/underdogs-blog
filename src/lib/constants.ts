@@ -12,6 +12,7 @@ export const NAV_ITEMS = [
   { label: "AI Driven", href: "/ai-systems" },
   { label: "Digital Marketing", href: "/marketing" },
   { label: "Field Notes", href: "/insights" },
+  { label: "Mind Drift", href: "/philosophy" },
   { label: "About", href: "/about" },
 ] as const;
 
@@ -36,5 +37,12 @@ export const CATEGORIES = [
     slug: "insights",
     href: "/insights",
     description: "시장분석, 브랜드 창업, 현장 기록",
+  },
+  {
+    label: "Mind Drift",
+    abbr: "MND",
+    slug: "philosophy",
+    href: "/philosophy",
+    description: "시스템 밖에서 던지는 질문들",
   },
 ] as const;
