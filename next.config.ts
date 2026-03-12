@@ -31,6 +31,20 @@ const nextConfig: NextConfig = {
     ];
   },
   compress: true,
+  async redirects() {
+    return [
+      // 구 블로그 마케팅 포스트 → 현재 마케팅 카테고리로 301 redirect
+      { source: "/mkt-regex/", destination: "/marketing", permanent: true },
+      { source: "/mkt-mbtitest-1/", destination: "/marketing", permanent: true },
+      { source: "/mkt-facebook-abo-cbo-1/", destination: "/marketing", permanent: true },
+      // 구 블로그 기타 포스트 → 홈으로
+      { source: "/stainless-cookware-1/", destination: "/", permanent: true },
+      { source: "/stainless-cookware-3/", destination: "/", permanent: true },
+      // 구 카테고리 페이지 → 홈으로
+      { source: "/category/:path*/", destination: "/", permanent: true },
+      { source: "/category/:path*", destination: "/", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
