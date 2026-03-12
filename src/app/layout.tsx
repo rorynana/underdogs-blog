@@ -88,15 +88,34 @@ export default function RootLayout({
       >
         <JsonLd data={{
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": SITE.name,
-          "url": SITE.siteUrl,
-          "description": SITE.description,
-          "author": {
-            "@type": "Person",
-            "name": SITE.author,
-            "jobTitle": "AI Driven Marketing Operator",
-          },
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": `${SITE.siteUrl}/#website`,
+              "name": SITE.name,
+              "url": SITE.siteUrl,
+              "description": SITE.description,
+              "publisher": { "@id": `${SITE.siteUrl}/#organization` },
+            },
+            {
+              "@type": "Organization",
+              "@id": `${SITE.siteUrl}/#organization`,
+              "name": SITE.name,
+              "url": SITE.siteUrl,
+              "description": SITE.description,
+              "founder": { "@id": `${SITE.siteUrl}/#person` },
+            },
+            {
+              "@type": "Person",
+              "@id": `${SITE.siteUrl}/#person`,
+              "name": SITE.author,
+              "jobTitle": "AI Driven Marketing Operator",
+              "url": `${SITE.siteUrl}/about`,
+              "sameAs": [
+                "https://github.com/rorynana",
+              ],
+            },
+          ],
         }} />
         <a
           href="#main-content"

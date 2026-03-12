@@ -1,0 +1,46 @@
+# The Underdogs
+
+> AI 기반 마케팅 시스템을 직접 구축하는 마케터의 기술 블로그 + 포트폴리오.
+
+## Author
+
+Seongyun Jang (장성윤) — AI Driven Marketing Operator
+- GitHub: https://github.com/rorynana
+- Email: jsy1379@gmail.com
+- Site: https://the-underdogs.kr
+
+## About
+
+비개발자 마케터가 Claude Code, Gemini, MCP 등 AI 에이전트를 활용해 실제 업무 시스템을 직접 개발한 경험을 공유합니다. 모든 포스트는 실제 구현·운영 사례 기반입니다.
+
+## Categories
+
+### AI Driven (/ai-systems)
+AI 에이전트와 자동화 시스템 구축기. MCP, Python, GitHub Actions 등을 활용한 실전 구현 사례.
+
+### Digital Marketing (/marketing)
+Facebook 광고, 퍼포먼스 마케팅, 데이터 분석 실전 노하우.
+
+### Field Notes (/insights)
+시장 조사, 트렌드 분석, 마케터 관점의 인사이트.
+
+### Mind Drift (/philosophy)
+AI, 불교, 시스템 사고가 교차하는 철학적 에세이.
+
+## Key Posts
+
+### AI Systems
+- 이카운트 ERP에 Claude MCP를 연결했다: https://the-underdogs.kr/ai-systems/onestock-ai-production-intelligence
+- 올리브영 경쟁사 모니터링 자동화 (Python + GitHub Actions + Google Sheets): https://the-underdogs.kr/ai-systems/market-monitoring-automation
+- 마케터가 14일 만에 만든 매출-광고 자동화 대시보드: https://the-underdogs.kr/ai-systems/marketing-intelligence-dashboard
+- 유튜브 인플루언서 스코어링 크롬 확장을 직접 만들었다: https://the-underdogs.kr/ai-systems/tubescout-youtube-creator-scoring
+
+### Marketing
+- Facebook 광고 ABO vs CBO 완전 정리: https://the-underdogs.kr/marketing/facebook-ads-abo-cbo
+- 개발자 없이 MBTI 테스트 만들기: https://the-underdogs.kr/marketing/mbti-test-without-dev
+- 스타트업 마케터 포트폴리오 작성법: https://the-underdogs.kr/marketing/startup-marketer-portfolio
+
+## Tech Stack
+
+Next.js 16 (App Router) + MDX + Tailwind CSS v4
+Deployed on Vercel at https://the-underdogs.kr

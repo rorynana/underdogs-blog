@@ -2,6 +2,7 @@ import TechBadge from "@/components/ui/TechBadge";
 import Giscus from "@/components/post/Giscus";
 import ShareButtons from "@/components/post/ShareButtons";
 import ReadingProgress from "@/components/post/ReadingProgress";
+import NewsletterCTA from "@/components/post/NewsletterCTA";
 import type { PostMeta } from "@/lib/content";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/lib/constants";
@@ -60,6 +61,7 @@ export default function PostLayout({ meta, children }: PostLayoutProps) {
         {children}
       </div>
       <ShareButtons meta={meta} />
+      <NewsletterCTA />
       <Giscus />
     </article>
     </>

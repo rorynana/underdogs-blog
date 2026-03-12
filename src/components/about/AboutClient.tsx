@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
+import NewsletterCTA from "@/components/post/NewsletterCTA";
 
 // ── Pixel sizes ─────────────────────────────────────────────────────────────
 const P = 10;        // Hero 오퍼레이터용
@@ -998,6 +999,9 @@ export default function AboutClient() {
           </button>
         </div>
       </section>
+
+      {/* ── Newsletter ────────────────────────────────────────────── */}
+      <NewsletterCTA />
 
       {/* ── CTA ─────────────────────────────────────────────────────── */}
       <section className="mt-16 rounded-2xl border border-accent/20 bg-accent/5 p-8 text-center">
